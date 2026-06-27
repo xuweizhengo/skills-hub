@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills Hub</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--bg-secondary:#161b22;--border:#30363d;--text:#c9d1d9;
+  --text-muted:#8b949e;--accent:#58a6ff;--accent-hover:#79c0ff;
+  --card-bg:#161b22;--card-hover:#1c2129;--input-bg:#0d1117;
+  --badge-bg:rgba(88,166,255,0.15);--tag-bg:#21262d;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+header{padding:40px 0 24px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.header-top{display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.header-top h1{font-size:28px;font-weight:700;color:#f0f6fc}
+.badge{background:var(--badge-bg);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:14px;font-weight:600;white-space:nowrap}
+.search-wrap{position:relative;max-width:480px;width:100%}
+.search-wrap input{width:100%;padding:10px 16px 10px 40px;background:var(--input-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:15px;outline:none;transition:border-color .2s}
+.search-wrap input:focus{border-color:var(--accent)}
+.search-wrap input::placeholder{color:var(--text-muted)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;width:18px;height:18px}
+.stats-bar{display:flex;gap:24px;flex-wrap:wrap;padding:12px 0 20px;color:var(--text-muted);font-size:14px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.stat{display:flex;align-items:center;gap:6px}
+.stat strong{color:var(--text);font-weight:600}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;background:var(--card-bg);color:var(--text-muted);border:1px solid var(--border);transition:all .15s;user-select:none}
+.tab:hover{background:var(--card-hover);color:var(--text)}
+.tab.active{background:var(--badge-bg);color:var(--accent);border-color:var(--accent)}
+.tab .count{font-size:12px;opacity:.7;margin-left:4px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:20px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:12px}
+.card:hover{background:var(--card-hover);border-color:var(--text-muted)}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.card-name{font-size:16px;font-weight:600;color:#f0f6fc;word-break:break-word}
+.cat-badge{padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;text-transform:uppercase;white-space:nowrap;letter-spacing:.5px;color:#fff;flex-shrink:0}
+.card-desc{font-size:13px;color:var(--text-muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card.expanded .card-desc{display:block;-webkit-line-clamp:unset}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:2px 10px;background:var(--tag-bg);border-radius:12px;font-size:12px;color:var(--text-muted);border:1px solid var(--border)}
+.expand-hint{font-size:12px;color:var(--accent);margin-top:auto;padding-top:4px;display:none}
+.card:hover .expand-hint{display:block}
+.no-results{text-align:center;padding:60px 20px;color:var(--text-muted);grid-column:1/-1}
+.no-results p{font-size:16px;margin-bottom:8px}
+footer{padding:32px 0;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:14px}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.header-top h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div class="header-top">
+    <h1>Skills Hub</h1>
+    <span class="badge" id="totalBadge">67 skills</span>
+  </div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="text" id="search" placeholder="Search skills by name or description...">
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat">Categories: <strong id="statCats">9</strong></div>
+  <div class="stat">Total skills: <strong id="statTotal">67</strong></div>
+  <div class="stat">Showing: <strong id="statShowing">67</strong></div>
+</div>
+
+<div class="tabs" id="tabs"></div>
+
+<div class="grid" id="grid"></div>
+
+<footer>
+  <p>Skills Hub &mdash; a collection of 67 curated skills across 9 categories. <a href="#">GitHub</a></p>
+</footer>
+</div>
+
+<script>
+const CAT_COLORS = {"chinese": "#f59e0b", "design": "#ec4899", "development": "#3b82f6", "devops": "#8b5cf6", "productivity": "#10b981", "security": "#ef4444", "supabase": "#22c9a3", "testing": "#f97316", "writing": "#6366f1"};
+const SKILLS = [
+  {name:'browser-cdp',description:'Use this skill when you need to control a Chrome browser via CDP (Chrome DevTools Protocol) to reuse existing login sessions. Covers: launching Chrome in debug mode, opening URLs, waiting for page load, evaluating JavaScript, taking snapshots, and extracting auth tokens. Trigger phrases: browser automation, CDP, agent-browser, 浏览器操作, 操作浏览器, Chrome CDP, 复用登录态, extract token from browser.',tags:[],category:'chinese'},
+  {name:'guizang-ppt-skill',description:'生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。提供两种风格：① "电子杂志 × 电子墨水"（衬线 + 流体背景 + 暖色） ② "瑞士国际主义"（无衬线 + 网格点阵 + IKB/柠檬黄/柠檬绿/安全橙高亮）。当用户需要制作分享 / 演讲 / 发布会风格的网页 PPT，或提到"杂志风 PPT"、"瑞士风 PPT"、"Swiss Style"、"horizontal swipe deck"时使用。',tags:[],category:'chinese'},
+  {name:'story-cover',description:'小说封面生成。根据书名、作者名自动分析题材风格，调用 GPT-Image-2 直接生成含标题和署名的专业级网文封面。触发方式：/story-cover、/封面、「帮我做个封面」「生成封面图」「做个小说封面」「封面设计」。',tags:[],category:'chinese'},
+  {name:'story-deslop',description:'网文去AI味。检测并清除文本中的AI写作痕迹，让文字回归自然、非模板化。触发方式：/story-deslop、/去AI味、「去AI味」「这篇太AI了」「网文去AI味」。',tags:[],category:'chinese'},
+  {name:'story-import',description:'逆向导入已有小说。将已写好的小说（半成品或完本）反向解析为标准项目目录结构，兼容 story-long-write / story-short-write 后续写作流程；内部复用 story-long-analyze / story-short-analyze 的拆解管道，按篇幅自动分流。触发方式：/story-import、「导入小说」「反向解析」「导入」「把我的书导进来」。',tags:[],category:'chinese'},
+  {name:'story-long-analyze',description:'长篇网文拆文。深度拆解爆款长篇小说的黄金三章、人设架构、爽点设计、节奏控制。单一深度拆解管道：跑完黄金三章（Stage 1）后产出快速预览报告并询问是否继续全量拆解，确认后从 Stage 2 续跑逐章摘要、聚合分析、设定关系、汇总报告，全程产物落盘 拆文库/{书名}/。触发方式：/story-long-analyze、/长篇拆文、「帮我拆这本书」「拆这本书」「分析黄金三章」「深度拆解」「完整拆解」「系统拆解」或提供小说文本文件路径——全部进入同一管道。',tags:[],category:'chinese'},
+  {name:'story-long-scan',description:'长篇网文扫榜。分析起点、番茄、晋江等平台排行榜数据，提炼市场趋势与热门题材。触发方式：/story-long-scan、/长篇扫榜、「长篇什么火」「起点排行」。',tags:[],category:'chinese'},
+  {name:'story-long-write',description:'长篇网文写作。从大纲到正文，辅助长篇网络小说的创作，包括世界观、人物、情节线管理。触发方式：/story-long-write、/写长篇、「帮我开书」「写大纲」「日更」「续写」「继续写」「修改第X章」「回炉」「重写第X章」。',tags:[],category:'chinese'},
+  {name:'story-review',description:'多视角对抗式审查。full/lean 模式在已部署 reviewer agents 时并行 spawn；缺失/异常 agents 或 spawn 失败时自动降级 solo，参考文件不可读时使用内置 rubric fallback。触发方式：/story-review、/审查、「审查一下」「帮我审一下」。',tags:[],category:'chinese'},
+  {name:'story-setup',description:'网文写作工具集基础设施部署。将 hooks/rules/agents/CLAUDE.md/AGENTS.md 等基础设施部署到用户项目目录，支持 Claude Code / OpenCode / Codex / OpenClaw。触发方式：/story-setup、$story-setup、「准备写书」「帮我搭一下环境」「配置写作项目」。',tags:[],category:'chinese'},
+  {name:'story-short-analyze',description:'短篇网文拆文。拆解爆款短篇小说（番茄短篇 / 故事会 / 知乎盐选 / 追妻 / 世情 / 重生 / 虐渣等通俗题材）的故事核、结构、情感线、反转设计、写作手法、共鸣层次。单一全量拆解管道：跑完 Stage 2-6 产出完整拆文报告，落盘到 拆文库/{书名}/，下游 story-short-write 同时读拆文报告 + 情节节点 + 写作手法 + 原文 + _meta.json 写下一篇。触发方式：/story-short-analyze、/短篇拆文、「拆短篇」「拆这篇短文」「短篇拆文」「精细拆解短篇」「8000 字短篇拆解」「番茄短篇拆文」「故事会拆解」「盐言故事拆解」「分析这篇短篇」——均进入同一管道。',tags:[],category:'chinese'},
+  {name:'story-short-scan',description:'短篇网文扫榜。分析知乎盐言、七猫、黑岩、点众等平台热门短篇数据，捕捉风口题材。触发方式：/story-short-scan、/短篇扫榜、「短篇什么火」「知乎故事排行」。',tags:[],category:'chinese'},
+  {name:'story-short-write',description:'短篇网文写作。辅助短篇小说创作，从构思到成稿，聚焦情绪拉扯与节奏把控。触发方式：/story-short-write、/写短篇、「帮我写一篇短篇」「写个盐言故事」。',tags:[],category:'chinese'},
+  {name:'story',description:'网络小说工具箱主入口。根据用户需求自动路由到对应 skill；当用户意图不明确时触发，由路由逻辑分发到具体的扫榜/拆文/写作/去AI味/封面/导入/审查 skill。触发方式：/story、$story、/网文、「我想写小说」「帮我写书」「写网文」「检查更新」「有新版本吗」。',tags:[],category:'chinese'},
+  {name:'website-generator',description:'\'Use when the user asks to create a website, build a site, generate a',tags:["community", "website-generator"],category:'design'},
+  {name:'agent-patterns',description:'\'Execute this skill should be used when the user asks about "SPAWN REQUEST',tags:["community", "agent-patterns"],category:'development'},
+  {name:'api-contract',description:'\'Configure this skill should be used when the user asks about "API contract",',tags:["community", "api", "typescript"],category:'development'},
+  {name:'cleanup-code',description:'\'Comprehensive codebase cleanup across 11 quality dimensions: dead code,',tags:["code-quality", "cleanup", "refactoring", "dead-code", "deduplication", "type-safety", "security"],category:'development'},
+  {name:'generating-rest-apis',description:'\'Generate complete REST API implementations from OpenAPI specifications',tags:["api", "database", "rest-apis"],category:'development'},
+  {name:'spec-writing',description:'\'Execute this skill should be used when the user asks about "writing',tags:["community", "spec-writing"],category:'development'},
+  {name:'sprint-workflow',description:'\'Execute this skill should be used when the user asks about "how sprints',tags:["community", "workflow", "sprint-workflow"],category:'development'},
+  {name:'building-cicd-pipelines',description:'\'Execute use when you need to work with deployment and CI/CD.',tags:["devops", "deployment", "ci-cd"],category:'devops'},
+  {name:'building-terraform-modules',description:'\'Execute this skill empowers AI assistant to build reusable terraform',tags:["devops", "terraform", "terraform-modules"],category:'devops'},
+  {name:'generating-docker-compose-files',description:'\'Execute use when you need to work with Docker Compose.',tags:["devops", "docker", "docker-compose"],category:'devops'},
+  {name:'action-items-todoist',description:'Extract action items from today\'s Granola/Grain meetings, create Todoist',tags:["business", "action-items"],category:'productivity'},
+  {name:'email-drafting',description:'"Draft email replies for Gonto\'s Gmail accounts (m@gon.to, gonto@hypergrowthpartners.com).\\',tags:["business", "webhooks", "email-drafting"],category:'productivity'},
+  {name:'executive-digest',description:'"Generate the daily executive digest \\u2014 a single WhatsApp summary\\',tags:["business", "executive-digest"],category:'productivity'},
+  {name:'generating-smart-commits',description:'\'Execute use when generating conventional commit messages from staged',tags:["devops", "git", "smart-commits"],category:'productivity'},
+  {name:'meeting-prep',description:'"Prepare briefings for today\'s meetings \\u2014 attendee research, email\\',tags:["business", "meeting-prep"],category:'productivity'},
+  {name:'todoist-due-drafts',description:'Check Todoist for tasks due today (and overdue) that involve pinging,',tags:["business", "todoist-due"],category:'productivity'},
+  {name:'analyzing-tls-config',description:'Analyze a target\'s TLS configuration — negotiated protocol version, cipher suite, certificate chain, expiry, and downgrade vectors. Use when: SOC2 auditor flagged your endpoint for "weak TLS" but you don\'t know which control failed (TSC CC6.7 transmission integrity vs CC6.6 encryption) or which cipher is the problem. Threshold: any negotiated TLSv1.0 or TLSv1.1, OR a cipher with RC4 / 3DES / null / EXPORT, OR a cert with under 30 days to expiry, OR a chain that fails hostname verification. Trigger with: "audit tls", "check ssl config", "weak tls", "analyze tls".',tags:["security", "tls", "ssl", "pentest", "transport-layer"],category:'security'},
+  {name:'auditing-cors-policy',description:'Audit a target\'s CORS posture — Access-Control-Allow-Origin handling, reflected-origin bypass, credentials+wildcard mismatch, preflight OPTIONS behavior, Vary header correctness. Use when: a third-party integration is failing CORS preflight and someone proposes "just set Allow-Origin to *" as the fix, OR your bug-bounty inbox has a credential-reuse exploit chain. Threshold: any reflection of arbitrary Origin into Allow-Origin, Allow-Credentials:true with wildcard origin (browser-rejected combo but server config wrong), missing Vary:Origin on per-origin responses, preflight cached over 86400s, OR Allow-Origin trust of attacker- controlled subdomain pattern. Trigger with: "audit cors", "check cors policy", "cors bypass", "preflight check".',tags:["security", "cors", "web", "pentest"],category:'security'},
+  {name:'auditing-npm-dependencies',description:'Audit a Node.js project\'s installed npm dependency tree for known CVEs by wrapping the npm audit JSON output and emitting findings in the canonical penetration-tester schema. Detects direct AND transitive vulnerabilities, normalizes npm\'s severity scale (info/low/moderate/ high/critical) to the shared Severity enum, and parses both v1 and v2 audit output formats so the skill works against npm 6 and npm 7+ lockfiles. Use when: pre-merge gate on a Node project, post-incident sweep after a transitive package compromise (e.g. event-stream, ua-parser, node-ipc, color.js), SOC2 vendor-management evidence collection, or auditing an inherited or acquired Node codebase. Threshold: any HIGH or CRITICAL CVE in the resolved dependency tree. MODERATE / LOW reported informationally. Trigger with: "audit npm deps", "npm vulnerability scan", "check node packages for CVEs", "npm audit".',tags:["security", "dependency-audit", "npm", "cve", "pentest"],category:'security'},
+  {name:'auditing-python-dependencies',description:'Audit a Python project\'s installed dependencies for known CVEs by wrapping pip-audit (PyPA\'s official vulnerability auditor) and emitting findings in the canonical penetration-tester schema. Detects vulnerable direct AND transitive packages, normalizes pip-audit\'s severity output via OSV severity bands, falls back to pip list --outdated when pip-audit isn\'t installed, and supports requirements.txt, pyproject.toml (PEP 621), Pipfile.lock, and poetry.lock as input sources. Use when: pre-merge gate on a Python project, post-incident sweep after a PyPI compromise (e.g. ctx, request-toolbelt typosquats, ultralytics 8.3.42 compromise), SOC2 evidence collection, or inheriting an unfamiliar Python codebase. Threshold: any HIGH or CRITICAL CVE in the resolved dependency tree. MODERATE / LOW reported informationally. Trigger with: "audit python deps", "pip vulnerability scan", "check pypi packages for CVEs", "pip-audit run".',tags:["security", "dependency-audit", "python", "pypi", "cve", "pentest"],category:'security'},
+  {name:'checking-http-security-headers',description:'Audit a target\'s HTTP security headers — CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, and the Cross-Origin trio (COOP, COEP, CORP). Use when: SOC2 / PCI auditor flagged "missing security headers" or a Mozilla Observatory grade is below B, OR you need HSTS preload eligibility for chrome://net-internals. Threshold: any missing required header on production HTML response, HSTS max-age below 31536000s (preload requirement), CSP with \'unsafe-inline\' or \'unsafe-eval\', X-Frame-Options absent AND CSP frame-ancestors absent (clickjacking), Cache-Control allowing public cache on authenticated endpoint. Trigger with: "audit security headers", "check csp", "hsts check", "header posture".',tags:["security", "http-headers", "csp", "hsts", "pentest"],category:'security'},
+  {name:'checking-license-compliance',description:'Audit a project\'s dependency licenses against an explicit policy (allow-list / deny-list / review-required) and flag incompatibilities before they ship to production. Reads SPDX license identifiers from npm package manifests, Python METADATA / PKG-INFO files, and pyproject.toml; classifies each license by family (permissive, weak-copyleft, strong-copyleft, proprietary, unknown); detects copyleft contamination and SPDX-incompatible license combinations. Use when: pre-release legal review, M&A code-audit due diligence, preparing an OSS attribution NOTICE file, or switching a project\'s own license. Threshold: any GPL-family license in a project declaring MIT or Apache-2.0; any UNKNOWN-license package; any metadata-vs-source license mismatch. Trigger with: "check licenses", "license compliance audit", "SPDX scan", "GPL contamination check".',tags:["security", "licensing", "spdx", "compliance", "pentest"],category:'security'},
+  {name:'composing-vulnerability-report',description:'Read findings JSONL files from cluster 1-4 skills, deduplicate by fingerprint, group by severity, and compose a deliverable- grade markdown vulnerability report with per-finding sections (title, severity, target, detail, remediation, evidence) and a top-level summary table. The canonical written artifact a customer receives at engagement close; precise, reproducible, machine- checkable against source findings. Use when: closing an engagement, generating an interim report, regenerating after CVE or OWASP enrichment, or producing the input for generating-executive-summary. Threshold: findings missing required fields are dropped. HIGH and CRITICAL findings highlighted in the summary section. Trigger with: "compose vuln report", "write pentest report", "generate vulnerability deliverable", "render findings to report".',tags:["security", "reporting", "vulnerability-report", "cvss", "pentest"],category:'security'},
+  {name:'confirming-pentest-authorization',description:'Verify that a penetration test has explicit, written, signed authorization before any scanning begins. Reads a Rules-of- Engagement (ROE) attestation file, validates required fields (authorizer, in-scope targets, time window, emergency contact, signature), checks the signer against an allowlist, and emits a CRITICAL finding if anything is missing. Designed as the first skill the orchestrator routes to. Use when: starting a new engagement, after a scope change, or before any cluster 1-4 scan skill runs. Threshold: any missing or unsigned ROE field; any time-window expiry; any in-scope target outside the authorized list. Trigger with: "confirm authorization", "verify ROE", "check pentest authz", "pre-flight authorization".',tags:["security", "engagement-governance", "authorization", "roe", "pentest"],category:'security'},
+  {name:'defining-pentest-scope',description:'Parse the ROE scope definition, enumerate every in-scope target (hostnames, IPs, CIDRs, URLs, cloud accounts, SaaS tenants), validate syntax, detect overlap with out-of-scope or known third-party SaaS ranges, and emit a normalized target list plus IP allowlist for scanning tools. Runs after confirming-pentest- authorization and before any cluster 1-4 scan. Use when: starting an engagement, expanding scope mid-engagement, validating that a target list matches the ROE, or generating an allowlist for an external scanner. Threshold: malformed syntax, in-scope overlap with out-of-scope, reserved or third-party SaaS ranges without acknowledgement. Trigger with: "define scope", "enumerate targets", "validate target list", "generate IP allowlist".',tags:["security", "engagement-governance", "scope", "target-enumeration", "pentest"],category:'security'},
+  {name:'detecting-command-injection-patterns',description:'Scan a source tree for command-injection vulnerable patterns: shell=True calls in Python subprocess, os.system / os.popen with interpolated strings, Node child_process.exec with template literals, Ruby backticks / Kernel#system / Kernel#exec with interpolation, Go exec.Command with shell wrapping, PHP system / passthru / shell_exec / backticks with $-interpolation, Java Runtime.exec with concatenated args. Use when: pre-commit gate on code that calls out to shell utilities, audit of file-processing / archive-handling / image-conversion code, post-bug-report investigation for "we shell out to a tool." Threshold: any shell-invocation API called with a string that contains a variable interpolation, OR shell=True with anything other than a fixed literal. Trigger with: "scan command injection", "shell=True audit", "find exec calls", "check os.system".',tags:["security", "static-analysis", "command-injection", "pentest"],category:'security'},
+  {name:'detecting-debug-endpoints',description:'Probe a target for accidentally-public admin / debug / introspection endpoints — Spring Boot Actuator, Apache server-status, Prometheus metrics, GraphQL playground, Swagger UI, phpMyAdmin, JMX-over-HTTP (Jolokia), Elasticsearch _cat, Kibana / Grafana / Eureka / Consul panels. Use when: post-deploy verification, security audit before SOC2, inheriting a system you didn\'t build, or a bug bounty hints at an exposed introspection panel. Threshold: any of the canonical 40+ admin/debug paths returns 200, 302 to a login, or framework-specific JSON shape (e.g., Actuator returning a _links object, server-status HTML body containing the Apache Server Status title). Trigger with: "check debug endpoints", "actuator exposure", "admin panel scan", "graphql playground check".',tags:["security", "information-disclosure", "admin-panels", "actuator", "pentest"],category:'security'},
+  {name:'detecting-directory-listing',description:'Probe a target for directories that return auto-generated index listings instead of denying or serving a specific file — exposes the full file tree under any reachable directory, including files the application never linked to. Use when: post-deploy verification on a static-asset host, security audit before SOC2, or following up on a finding from skill #6 (exposed-files) where a backup-file path returned 200 with HTML body instead of the expected file content (suggests autoindex serving a directory listing). Threshold: any directory-shaped path returns 200 with HTML body matching the framework-specific autoindex fingerprint (nginx fancyindex, Apache mod_autoindex Index of/, Caddy browse, Lighttpd mod_dirlisting, etc.). Trigger with: "directory listing check", "autoindex detection", "open directory scan".',tags:["security", "information-disclosure", "autoindex", "pentest"],category:'security'},
+  {name:'detecting-eval-exec-usage',description:'Scan a source tree for dynamic-code-execution APIs that an attacker can hijack: Python eval / exec / compile, JavaScript eval / Function() / setTimeout(string), Ruby eval / instance_eval / class_eval, Java ScriptEngine, PHP eval / assert($str), .NET Activator.CreateInstance / Reflection.Emit with dynamic input. Use when: pre-commit gate on any application that parses user-uploaded code (rule engines, formula evaluators, plugin systems), or post-bug-report when "we run user-supplied expressions." Threshold: any call to eval / exec / Function / similar where the argument is not a string literal. Trigger with: "scan eval", "find dynamic exec", "audit eval calls", "code injection patterns".',tags:["security", "static-analysis", "code-injection", "pentest"],category:'security'},
+  {name:'detecting-exposed-secrets-files',description:'Probe a target for accidentally-served secret-bearing files in the web root — `.git/`, `.env`, `.DS_Store`, backup files, database dumps, key files, CI configs, IDE configs. Use when: post-deploy verification on a new release, or SOC2 auditor asked "what\'s reachable in the web root that shouldn\'t be," or a bug-bounty report hints at a leaked file. Threshold: any of the canonical 40+ paths returns 200 OR returns a body matching the expected fingerprint of the file type (e.g., `.git/HEAD` returns content starting with `ref:` or a 40-char hex SHA). Trigger with: "check exposed files", "git directory exposure", "env file leak", "backup file scan".',tags:["security", "information-disclosure", "secrets", "pentest"],category:'security'},
+  {name:'detecting-insecure-deserialization',description:'Scan a source tree for unsafe-by-default deserialization APIs: Python pickle.loads / cPickle / shelve / dill, Ruby Marshal.load / YAML.load (pre-3.1 default), Java ObjectInputStream.readObject, PHP unserialize, .NET BinaryFormatter / NetDataContractSerializer, Node.js node-serialize, JavaScript JSON.parse with reviver containing eval. Use when: pre-commit gate on services that accept binary blobs, audit of legacy job-queue code (workers deserializing tasks), post-bug-report when "we accept user-uploaded archives." Threshold: any call to a known-unsafe deserialization API on data that originates from user input, network, file upload, or untrusted storage. Trigger with: "scan deserialization", "pickle audit", "java readObject scan", "yaml.load check".',tags:["security", "static-analysis", "deserialization", "pentest"],category:'security'},
+  {name:'detecting-sql-injection-patterns',description:'Scan a source tree for SQL-injection vulnerable patterns: string concatenation into queries, f-string interpolation in SQL, string-format substitution into raw queries, deprecated cursor methods (cursor.execute with % formatting), Knex / Sequelize raw() with template interpolation, sequelize.query with replacements. Use when: pre-commit code review, post-feature SQL-touching release, inheriting a legacy codebase that predates ORMs, or post-bug-report investigation. Threshold: any source line where SQL keywords (SELECT / INSERT / UPDATE / DELETE / FROM / WHERE) appear in a string that\'s being built via concatenation, f-string, %-format, or .format() with variable input. Trigger with: "scan for sqli", "sql injection patterns", "check raw queries", "audit cursor.execute".',tags:["security", "static-analysis", "sql-injection", "pentest"],category:'security'},
+  {name:'detecting-ssl-cert-issues',description:'Audit a target\'s TLS certificate beyond protocol/expiry — chain ordering, OCSP stapling, revocation status, Certificate Transparency presence, key-usage flags, and over-broad wildcards. Use when: TLS handshake already passes (skill #1 analyzing-tls-config cleared) but you suspect the cert posture is fragile. Auditors flag this during SOC2 readiness when a renewal slipped or an intermediate was rotated. Threshold: missing OCSP stapling on production, fewer than 2 SCTs in the cert, intermediate served out of order, key usage missing digitalSignature/keyEncipherment, revoked cert presented, or wildcard scope of 2-level (e.g., *.com is rejection; *.api.example.com is fine). Trigger with: "check cert revocation", "audit ocsp", "ct log check", "cert chain audit".',tags:["security", "tls", "ocsp", "certificate-transparency", "pentest"],category:'security'},
+  {name:'detecting-weak-cryptography',description:'Scan a source tree for weak cryptographic primitives: MD5 / SHA-1 used for security purposes, DES / 3DES / RC4 ciphers, ECB block mode, custom-built crypto (XOR loops, hand-rolled HMAC), hardcoded IVs, predictable random (Math.random / java.util.Random for crypto seeds), missing certificate verification (verify=False, rejectUnauthorized: false). Use when: pre-merge gate on crypto-touching code, audit before SOC2 / PCI assessment, post-incident review when "we found a weakness in our token signing." Threshold: any call to a known-weak algorithm with non-test context, OR cert verification explicitly disabled, OR a custom crypto loop pattern. Trigger with: "scan weak crypto", "find MD5 usage", "check ECB mode", "audit ssl verify", "weak random".',tags:["security", "static-analysis", "cryptography", "pentest"],category:'security'},
+  {name:'fingerprinting-server-software',description:'Identify the server software, framework, and component versions a target is running from its HTTP response signatures — Server header, X-Powered-By, Via, X-AspNet-Version, X-Runtime, X-Drupal-Cache, X-Generator, Set-Cookie name patterns, error-page artwork, HTTP method behavior signatures. Use when: penetration test reconnaissance phase, post-deploy audit of fingerprintable exposure, or before reporting "no obvious version disclosure" to an auditor. Threshold: any version string in a response header (e.g., Server header with nginx/1.18.0, X-Powered-By with PHP/7.4.21, X-Generator with Drupal 9), or any framework-default Set-Cookie name (PHPSESSID, JSESSIONID, connect.sid, _csrf_token). Trigger with: "fingerprint server", "version disclosure", "tech-stack identification", "what\'s this site running".',tags:["security", "information-disclosure", "fingerprinting", "reconnaissance", "pentest"],category:'security'},
+  {name:'generating-executive-summary',description:'Compose an exec-readable summary from a unified findings JSONL plus the OWASP coverage report. Computes a single engagement risk score (0-100, severity-weighted with OWASP-breadth and governance terms), rolls up findings into headline counts, names the top-3 remediation priorities with effort + impact estimates, and produces a 1-2 page markdown document for a C-level or board audience. Elides technical detail; the vulnerability report is the deep document. Use when: closing an engagement, preparing the exec-readout meeting, packaging for board review, or producing a one-page narrative for auditor / insurer / board. Threshold: input findings missing produces CRITICAL operational finding; otherwise the deliverable is the document itself. Trigger with: "generate exec summary", "executive summary", "C-level readout", "board pentest summary".',tags:["security", "reporting", "executive-summary", "risk-score", "pentest"],category:'security'},
+  {name:'mapping-findings-to-owasp-top10',description:'Annotate every pentest finding with its OWASP Top 10 (2021) category by applying a deterministic rule table keyed on source skill, finding category, detail keywords, and CWE identifier when present. Produces an enriched findings JSONL plus a per-category rollup report showing how findings distribute across A01 through A10. Required for customer-facing OWASP coverage sections and compliance contexts (PCI DSS 6.5, SOC2 CC7, ISO 27001 A.14.2). Use when: enriching findings after cluster 1-4 scans, regenerating the report with OWASP tags, producing the OWASP coverage section for an exec summary, or auditing engagement OWASP coverage. Threshold: unclassifiable findings emitted as INFO with UNMAPPED category for operator review. Trigger with: "map to OWASP", "owasp top 10 mapping", "annotate owasp categories", "owasp coverage check".',tags:["security", "reporting", "owasp", "top10", "pentest"],category:'security'},
+  {name:'performing-penetration-testing',description:'Orchestrate a penetration test by routing user intent to one or more of the 25 narrow skills in this pack. Confirms authorization + scope FIRST (cluster 5), runs the relevant scan skills (clusters 1-4), then composes findings into the customer deliverables (cluster 6) plus an integrity-attestable engagement archive (cluster 5). Backward-compatible with v2 invocations — "pentest", "security scan", "audit dependencies" still work but now route to the narrow skills instead of the v2 monolithic scripts. Use when: starting a security engagement, running an ad-hoc scan, planning a multi-day pentest, or operating the full authorization-to-deliverable workflow end-to-end. Trigger with: "pentest", "security scan", "vulnerability check", "audit dependencies", "check headers", "find secrets", "OWASP scan", "security audit".',tags:["security", "testing", "pentest", "orchestration"],category:'security'},
+  {name:'performing-security-code-review',description:'\'Execute this skill enables AI assistant to conduct a security-focused',tags:["example", "security", "authentication", "audit"],category:'security'},
+  {name:'probing-dangerous-http-methods',description:'Probe a target for HTTP methods that should not be enabled in production — TRACE (XST attack), unrestricted PUT/DELETE, DEBUG/CONNECT, WebDAV (PROPFIND/MKCOL/COPY/MOVE), and Allow header enumeration. Use when: penetration test rules of engagement include HTTP method testing, OR a load balancer change went live and you suspect default methods were exposed. Threshold: TRACE returns 200 on any path (XST), PUT/DELETE returns anything other than 405/403/404 on a non-API endpoint, OPTIONS Allow header lists DEBUG/CONNECT/PROPFIND, or WebDAV methods succeed. Trigger with: "audit http methods", "trace check", "options enumeration", "webdav probe".',tags:["security", "http-methods", "xst", "webdav", "pentest"],category:'security'},
+  {name:'recording-pentest-engagement',description:'Package an engagement\'s findings, scan outputs, evidence, and signed ROE into a timestamped archive with a SHA-256 manifest covering every file. Establishes chain of custody so legal counsel, internal audit, or an outside SOC can verify the archive hasn\'t been modified after closeout. Optionally signs the manifest with GPG for cryptographic attestation. Use when: closing an engagement, snapshotting evidence after each scan day, before handing artifacts to customer, or after an emergency-stop event. Threshold: file in tree without a manifest entry, hash mismatch, out-of-tree path referenced in findings, unsigned manifest when signing was requested. Trigger with: "record engagement", "archive evidence", "create chain of custody", "package pentest artifacts".',tags:["security", "engagement-governance", "evidence", "chain-of-custody", "pentest"],category:'security'},
+  {name:'scanning-for-hardcoded-secrets',description:'Scan a source-code tree for hardcoded credentials embedded in source files: AWS access keys, GitHub tokens, Stripe keys, Slack tokens, Anthropic API keys, OpenAI keys, JWT signing secrets, generic base64-encoded passwords, RSA / SSH private keys, and high-entropy string literals that pattern-match common credential shapes. Use when: pre-commit gate before pushing a feature branch, audit before SOC2, post-incident scan after a leak, or inheriting a codebase you didn\'t write. Threshold: any source file contains a string that matches a canonical credential regex (AWS AKIA prefix, GitHub ghp_ prefix, etc.) OR a string with Shannon entropy above 4.5 in a field context (key=, token:, secret=). Trigger with: "scan secrets", "credential scan", "find hardcoded keys", "leak check".',tags:["security", "static-analysis", "secrets", "pentest"],category:'security'},
+  {name:'tracing-transitive-vulnerabilities',description:'Build a dependency-tree map of a project (npm or Python) and trace the path from each known-vulnerable transitive package back to one or more direct dependencies. Identifies which direct-dep bump would clear the most findings at once (highest-leverage upgrade), which vulnerabilities are unreachable through any version bump and require overrides or vendor-patch, and which CVEs sit at deep transitive depth (3+ levels from a direct dep) where blast-radius triage is hardest. Use when: a multi-finding audit produces noise and you need to prioritize, when planning a major dependency refresh, after an upstream package compromise hits your tree (e.g. event-stream flatmap-stream), or when an audit shows findings that automated fix commands cannot auto-resolve. Threshold: any HIGH or CRITICAL CVE reachable only through transitive paths that no single direct-dep bump can clear. Trigger with: "trace transitive vulns", "find dep paths", "SBOM vuln trace", "which direct dep pulls this CVE".',tags:["security", "sbom", "transitive-dependency", "dependency-graph", "pentest"],category:'security'},
+  {name:'supabase-postgres-best-practices',description:'Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.',tags:[],category:'supabase'},
+  {name:'supabase',description:'Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector).',tags:[],category:'supabase'},
+  {name:'generating-unit-tests',description:'\'Test automatically generate comprehensive unit tests from source code',tags:["testing", "unit-tests"],category:'testing'},
+  {name:'running-e2e-tests',description:'\'Execute end-to-end tests covering full user workflows across frontend',tags:["testing", "workflow", "e2e-tests"],category:'testing'},
+  {name:'avoid-ai-writing',description:'Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked to "remove AI-isms," "clean up AI writing," "edit writing for AI patterns," "audit writing for AI tells," or "make this sound less like AI." Supports a detect-only mode, an edit-in-place mode for files, an optional voice profile (casual / professional / technical / warm / blunt), and an iterate-to-convergence pass.',tags:[],category:'writing'},
+  {name:'blog-editorial-calendar',description:'Run your blog like a queue, not a guessing game. This skill is the orchestration layer on top of blog-topic-research and seo-blog-writer: it keeps an evidence-backed backlog, picks the next topic so your corpus drifts toward the cluster + format mix you defined, schedules posts into a rolling daily cadence, and marks them done — autonomously, two posts a day if you want. It scores every pick by how far each topic cluster is from its target weight (so you never end up with 40 troubleshooting posts and no comparisons), reconciles the backlog against what\'s actually live on your CMS, and auto-refills by calling blog-topic-research when the queue runs dry. Platform-agnostic: it drives whatever publish adapter seo-blog-writer is configured for (Ghost, WordPress, static site). Built for founders, indie hackers, and content teams who want a hands-off long-tail SEO pipeline that publishes on a schedule and stays balanced. Trigger when the user says: \'what should I write next\', \'pick the next topic\', \'schedule the next N posts\', \'editorial calendar status\', \'add this to the backlog\', \'mark this post done\', or any variant of running a recurring publish cadence.',tags:[],category:'writing'},
+  {name:'blog-figure-svg',description:'Stop using stock photos. Generate accessible, lightweight SVG figures for any blog or CMS - flow diagrams, comparison bar charts, taxonomy/Venn diagrams, annotated terminal mocks, and 1600x840 OG feature cards. Hand-authored SVG (no embedded fonts, no external assets, no AI-image latency) with a consistent palette, screen-reader metadata (title + desc + aria-labelledby), and a figcaption-required handoff to the writer. Rasterizes to compressed PNG ready for Ghost, WordPress, Webflow, or any static-site generator. Built for content marketers, indie hackers, and dev-tool blogs that want unique illustrations on every post without paying a designer or burning Midjourney credits. Trigger when the user says: \'add a figure to the post\', \'illustrate this comparison\', \'draw a flow diagram for X\', \'make a feature/OG image\', or any request to produce a chart/diagram for editorial use.',tags:[],category:'writing'},
+  {name:'blog-topic-research',description:'Stop writing blog posts nobody searches for. This skill builds your editorial backlog from real, verifiable user demand - never from AI vibes. It mines candidates from Google Suggest, People Also Ask, Reddit, Stack Overflow, GitHub issues, vendor forums, and changelogs; captures every signal as a citable URL with verbatim evidence; classifies each topic by post format (how-to-fix, x-vs-y, listicle, migration, release-recap, ...); checks against your existing backlog so you don\'t cannibalize what you already published; and outputs a writer-ready scaffold with primary sources, problem summary, confirmed fixes, version context, and FAQ variants. Built for content marketers, founders, indie hackers, and dev-tool teams who want a long-tail SEO pipeline backed by evidence instead of hallucinated keyword volumes. Trigger when the user says: \'research blog topics\', \'find topics with real demand\', \'expand the editorial backlog\', \'research N long-tail topics\', or any variant of growing a content pipeline with verified candidates.',tags:[],category:'writing'},
+  {name:'generating-api-docs',description:'\'Create comprehensive API documentation with examples, authentication',tags:["api", "authentication", "api-docs"],category:'writing'},
+  {name:'seo-blog-writer',description:'Turn a single long-tail query into a publish-ready blog post that ranks in search and gets quoted by AI assistants. Runs the full pipeline: classify the topic, research it against real sources, draft clean HTML, scrub LLM-tell vocabulary and typography, audit for AI-SEO (TL;DR block, query-phrased H2s, FAQ section, FAQPage + BreadcrumbList + HowTo JSON-LD), then publish through a platform adapter (Ghost Admin API, WordPress REST, or static-site file output). Platform-agnostic core; swap the publish step without rewriting the writing pipeline. Built for indie hackers, founders, and content marketers who want AI to draft posts that are actually citable - not paraphrased docs, not hallucinated benchmarks. Trigger when the user says: \'write a blog post on X\', \'draft an article about X\', \'publish a post on X to Ghost / WordPress / the static site\', or any request to ship editorial content for a long-tail query.',tags:[],category:'writing'}
+];
+
+let activeCategory = 'all';
+let searchQuery = '';
+
+function buildTabs() {
+  const counts = {};
+  counts['all'] = SKILLS.length;
+  SKILLS.forEach(s => {
+    counts[s.category] = (counts[s.category] || 0) + 1;
+  });
+  const order = ['all','chinese','development','devops','productivity','security','supabase','testing','writing','design'];
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = order.filter(k => counts[k]).map(k => {
+    const label = k === 'all' ? 'All' : k.charAt(0).toUpperCase() + k.slice(1);
+    const cls = k === activeCategory ? 'tab active' : 'tab';
+    return `<span class="${cls}" data-cat="${k}">${label}<span class="count">(${counts[k]})</span></span>`;
+  }).join('');
+  tabs.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', () => {
+      activeCategory = t.dataset.cat;
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      render();
+    });
+  });
+}
+
+function render() {
+  const q = searchQuery.toLowerCase();
+  let filtered = SKILLS;
+  if (activeCategory !== 'all') {
+    filtered = filtered.filter(s => s.category === activeCategory);
+  }
+  if (q) {
+    filtered = filtered.filter(s =>
+      s.name.toLowerCase().includes(q) ||
+      s.description.toLowerCase().includes(q)
+    );
+  }
+  document.getElementById('statShowing').textContent = filtered.length;
+  document.getElementById('statTotal').textContent = SKILLS.length;
+  document.getElementById('totalBadge').textContent = SKILLS.length + ' skills';
+
+  const grid = document.getElementById('grid');
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="no-results"><p>No skills found</p><span>Try a different search or category</span></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(s => {
+    const catColor = CAT_COLORS[s.category] || '#58a6ff';
+    const tagsHtml = s.tags.length ? `<div class="tags">${s.tags.map(t => `<span class="tag">${escHtml(t)}</span>`).join('')}</div>` : '';
+    return `
+      <div class="card" data-name="${escAttr(s.name)}">
+        <div class="card-header">
+          <span class="card-name">${escHtml(s.name)}</span>
+          <span class="cat-badge" style="background:${catColor}">${escHtml(s.category)}</span>
+        </div>
+        <div class="card-desc">${escHtml(s.description)}</div>
+        ${tagsHtml}
+        <span class="expand-hint">Click to expand</span>
+      </div>`;
+  }).join('');
+
+  // Click to expand
+  grid.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasExpanded = card.classList.contains('expanded');
+      grid.querySelectorAll('.card.expanded').forEach(c => c.classList.remove('expanded'));
+      if (!wasExpanded) {
+        card.classList.add('expanded');
+        card.querySelector('.expand-hint').textContent = 'Click to collapse';
+      }
+    });
+  });
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) {
+  return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  render();
+});
+
+buildTabs();
+render();
+</script>
+</body>
+</html>
