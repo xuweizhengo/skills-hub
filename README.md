@@ -134,8 +134,10 @@ Looking for MCP servers? Check out **[MCP Registry](https://github.com/xuweizhen
 
 ## 🔗 Related Projects
 
-- **[cursor2api](https://github.com/xuweizhengo/cursor2api)** — Reverse-engineered Cursor API, enabling programmatic access to Cursor's AI features
-- **[MCP Registry](https://github.com/xuweizhengo/mcp-registry)** — Curated directory of top MCP servers for AI agents
+- **[cursor-free-api](https://github.com/xuweizhengo/cursor-free-api)** — Cursor API compatible gateway for OpenAI and Anthropic clients
+- **[llm-api-purity](https://github.com/xuweizhengo/llm-api-purity)** — OpenAI and Claude API purity checker
+- **[aws-auto-register](https://github.com/xuweizhengo/aws-auto-register)** — AWS Builder ID automation research tool
+- **[fingerprint-toolkit](https://github.com/xuweizhengo/fingerprint-toolkit)** — Browser fingerprint randomization toolkit
 
 ---
 
@@ -286,8 +288,10 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 ## 🔗 相关项目
 
-- **[cursor2api](https://github.com/xuweizhengo/cursor2api)** — Cursor API 逆向工程，实现以编程方式访问 Cursor 的 AI 功能
-- **[MCP Registry](https://github.com/xuweizhengo/mcp-registry)** — 精选的顶级 MCP 服务器目录，面向 AI 助手
+- **[cursor-free-api](https://github.com/xuweizhengo/cursor-free-api)** — Cursor API 转 OpenAI / Anthropic 兼容接口
+- **[llm-api-purity](https://github.com/xuweizhengo/llm-api-purity)** — OpenAI 与 Claude API 纯度检测工具
+- **[aws-auto-register](https://github.com/xuweizhengo/aws-auto-register)** — AWS Builder ID 自动化研究工具
+- **[fingerprint-toolkit](https://github.com/xuweizhengo/fingerprint-toolkit)** — 浏览器指纹随机化工具箱
 
 ---
 
