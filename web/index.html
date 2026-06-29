@@ -57,7 +57,7 @@ footer a:hover{text-decoration:underline}
 <header>
   <div class="header-top">
     <h1>Skills Hub</h1>
-    <span class="badge" id="totalBadge">67 skills</span>
+    <span class="badge" id="totalBadge">68 skills</span>
   </div>
   <div class="search-wrap">
     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -66,9 +66,9 @@ footer a:hover{text-decoration:underline}
 </header>
 
 <div class="stats-bar">
-  <div class="stat">Categories: <strong id="statCats">9</strong></div>
-  <div class="stat">Total skills: <strong id="statTotal">67</strong></div>
-  <div class="stat">Showing: <strong id="statShowing">67</strong></div>
+  <div class="stat">Categories: <strong id="statCats">10</strong></div>
+  <div class="stat">Total skills: <strong id="statTotal">68</strong></div>
+  <div class="stat">Showing: <strong id="statShowing">68</strong></div>
 </div>
 
 <div class="tabs" id="tabs"></div>
@@ -76,12 +76,12 @@ footer a:hover{text-decoration:underline}
 <div class="grid" id="grid"></div>
 
 <footer>
-  <p>Skills Hub &mdash; a collection of 67 curated skills across 9 categories. <a href="#">GitHub</a></p>
+  <p>Skills Hub &mdash; a collection of 68 curated skills across 10 categories. <a href="#">GitHub</a></p>
 </footer>
 </div>
 
 <script>
-const CAT_COLORS = {"chinese": "#f59e0b", "design": "#ec4899", "development": "#3b82f6", "devops": "#8b5cf6", "productivity": "#10b981", "security": "#ef4444", "supabase": "#22c9a3", "testing": "#f97316", "writing": "#6366f1"};
+const CAT_COLORS = {"chinese": "#f59e0b", "design": "#ec4899", "development": "#3b82f6", "devops": "#8b5cf6", "productivity": "#10b981", "security": "#ef4444", "supabase": "#22c9a3", "social": "#06b6d4", "testing": "#f97316", "writing": "#6366f1"};
 const SKILLS = [
   {name:'browser-cdp',description:'Use this skill when you need to control a Chrome browser via CDP (Chrome DevTools Protocol) to reuse existing login sessions. Covers: launching Chrome in debug mode, opening URLs, waiting for page load, evaluating JavaScript, taking snapshots, and extracting auth tokens. Trigger phrases: browser automation, CDP, agent-browser, 浏览器操作, 操作浏览器, Chrome CDP, 复用登录态, extract token from browser.',tags:[],category:'chinese'},
   {name:'guizang-ppt-skill',description:'生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。提供两种风格：① "电子杂志 × 电子墨水"（衬线 + 流体背景 + 暖色） ② "瑞士国际主义"（无衬线 + 网格点阵 + IKB/柠檬黄/柠檬绿/安全橙高亮）。当用户需要制作分享 / 演讲 / 发布会风格的网页 PPT，或提到"杂志风 PPT"、"瑞士风 PPT"、"Swiss Style"、"horizontal swipe deck"时使用。',tags:[],category:'chinese'},
@@ -142,6 +142,7 @@ const SKILLS = [
   {name:'tracing-transitive-vulnerabilities',description:'Build a dependency-tree map of a project (npm or Python) and trace the path from each known-vulnerable transitive package back to one or more direct dependencies. Identifies which direct-dep bump would clear the most findings at once (highest-leverage upgrade), which vulnerabilities are unreachable through any version bump and require overrides or vendor-patch, and which CVEs sit at deep transitive depth (3+ levels from a direct dep) where blast-radius triage is hardest. Use when: a multi-finding audit produces noise and you need to prioritize, when planning a major dependency refresh, after an upstream package compromise hits your tree (e.g. event-stream flatmap-stream), or when an audit shows findings that automated fix commands cannot auto-resolve. Threshold: any HIGH or CRITICAL CVE reachable only through transitive paths that no single direct-dep bump can clear. Trigger with: "trace transitive vulns", "find dep paths", "SBOM vuln trace", "which direct dep pulls this CVE".',tags:["security", "sbom", "transitive-dependency", "dependency-graph", "pentest"],category:'security'},
   {name:'supabase-postgres-best-practices',description:'Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.',tags:[],category:'supabase'},
   {name:'supabase',description:'Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector).',tags:[],category:'supabase'},
+  {name:'hermes-tweet',description:'Use when a Hermes Agent session needs X/Twitter search, monitoring, trend reads, content research, or user-approved account actions through the Hermes Tweet plugin.',tags:["hermes-agent", "x", "twitter", "social-media", "automation"],category:'social'},
   {name:'generating-unit-tests',description:'\'Test automatically generate comprehensive unit tests from source code',tags:["testing", "unit-tests"],category:'testing'},
   {name:'running-e2e-tests',description:'\'Execute end-to-end tests covering full user workflows across frontend',tags:["testing", "workflow", "e2e-tests"],category:'testing'},
   {name:'avoid-ai-writing',description:'Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked to "remove AI-isms," "clean up AI writing," "edit writing for AI patterns," "audit writing for AI tells," or "make this sound less like AI." Supports a detect-only mode, an edit-in-place mode for files, an optional voice profile (casual / professional / technical / warm / blunt), and an iterate-to-convergence pass.',tags:[],category:'writing'},
@@ -161,7 +162,7 @@ function buildTabs() {
   SKILLS.forEach(s => {
     counts[s.category] = (counts[s.category] || 0) + 1;
   });
-  const order = ['all','chinese','development','devops','productivity','security','supabase','testing','writing','design'];
+  const order = ['all','chinese','development','devops','productivity','security','supabase','social','testing','writing','design'];
   const tabs = document.getElementById('tabs');
   tabs.innerHTML = order.filter(k => counts[k]).map(k => {
     const label = k === 'all' ? 'All' : k.charAt(0).toUpperCase() + k.slice(1);
