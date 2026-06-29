@@ -1,11 +1,11 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-67-blue?style=flat-square)](#)
-[![Categories](https://img.shields.io/badge/Categories-9-orange?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-68-blue?style=flat-square)](#)
+[![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **67 AI coding agent skills** sourced from the most popular skill repositories on GitHub. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **68 AI coding agent skills** sourced from the most popular skill repositories on GitHub. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
 ---
 
@@ -87,6 +87,12 @@ An extensive suite of penetration testing, security auditing, and vulnerability 
 | `supabase` | Supabase platform integration and management |
 | `supabase-postgres-best-practices` | PostgreSQL best practices for Supabase projects |
 
+### 📣 Social Media (1 skill)
+
+| Skill | Description |
+|---|---|
+| `hermes-tweet` | Hermes Agent plugin guidance for X/Twitter search, monitoring, trends, and approval-gated actions |
+
 ### 🧪 Testing (2 skills)
 
 | Skill | Description |
@@ -154,12 +160,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-67-blue?style=flat-square)](#)
-[![分类](https://img.shields.io/badge/分类-9-orange?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-68-blue?style=flat-square)](#)
+[![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上最热门的技能仓库中精选整理的 **67 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上最热门的技能仓库中精选整理的 **68 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
 ---
 
@@ -240,6 +246,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 |---|---|
 | `supabase` | Supabase 平台集成与管理 |
 | `supabase-postgres-best-practices` | Supabase 项目的 PostgreSQL 最佳实践 |
+
+### 📣 社交媒体 (1 个技能)
+
+| 技能 | 描述 |
+|---|---|
+| `hermes-tweet` | Hermes Agent 的 X/Twitter 搜索、监控、趋势与需批准操作指南 |
 
 ### 🧪 测试 (2 个技能)
 
