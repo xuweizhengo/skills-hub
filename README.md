@@ -1,11 +1,11 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-67-blue?style=flat-square)](#)
-[![Categories](https://img.shields.io/badge/Categories-9-orange?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-71-blue?style=flat-square)](#)
+[![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **67 AI coding agent skills** sourced from the most popular skill repositories on GitHub. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **71 AI coding agent skills** sourced from the most popular skill repositories on GitHub and official OpenAI-compatible workflows. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
 ---
 
@@ -76,6 +76,17 @@ Domain-specific skills for Chinese web novel workflows, browser automation, and 
 | `generating-smart-commits` | Context-aware Git commit message generation |
 | `meeting-prep` | Meeting agenda and prep material generation |
 | `todoist-due-drafts` | Draft management with Todoist due-date tracking |
+
+### 🤖 OpenAI (4 skills)
+
+OpenAI/Codex-compatible skills for authoring, packaging, distribution, and evaluation workflows. These are original workflow skills that link to official OpenAI documentation instead of mirroring proprietary runtime bundles.
+
+| Skill | Description |
+|---|---|
+| `codex-skill-authoring` | Create or refine Codex-compatible Agent Skills |
+| `codex-skill-distribution` | Package and distribute skills for Codex users |
+| `openai-api-skill-packaging` | Package skills for OpenAI API agent workflows |
+| `openai-skill-evals` | Build lightweight quality checks for reusable skills |
 
 ### 🔒 Security (27 skills)
 An extensive suite of penetration testing, security auditing, and vulnerability assessment skills. Covers recon, exploitation, post-exploitation, web app testing, network scanning, and report generation — a comprehensive toolkit for security professionals.
@@ -164,12 +175,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-67-blue?style=flat-square)](#)
-[![分类](https://img.shields.io/badge/分类-9-orange?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-71-blue?style=flat-square)](#)
+[![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上最热门的技能仓库中精选整理的 **67 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上最热门的技能仓库和 OpenAI 官方兼容工作流中精选整理的 **71 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
 ---
 
@@ -240,6 +251,17 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 | `generating-smart-commits` | 上下文感知的 Git 提交信息生成 |
 | `meeting-prep` | 会议议程与准备材料生成 |
 | `todoist-due-drafts` | 结合 Todoist 截止日期的草稿管理 |
+
+### 🤖 OpenAI (4 个技能)
+
+面向 OpenAI / Codex 兼容工作流的技能编写、打包、分发与评估技能。这些技能是原创工作流总结，并链接官方 OpenAI 文档，不镜像专有运行时包。
+
+| 技能 | 描述 |
+|---|---|
+| `codex-skill-authoring` | 创建或优化 Codex 兼容 Agent Skill |
+| `codex-skill-distribution` | 为 Codex 用户打包和分发技能 |
+| `openai-api-skill-packaging` | 为 OpenAI API agent 工作流打包技能 |
+| `openai-skill-evals` | 为可复用技能构建轻量质量检查 |
 
 ### 🔒 安全 (27 个技能)
 一套全面的渗透测试、安全审计与漏洞评估技能集。覆盖信息收集、漏洞利用、后渗透、Web 应用测试、网络扫描及报告生成——为安全专业人员提供的一站式工具箱。
