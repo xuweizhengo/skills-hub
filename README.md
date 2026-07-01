@@ -132,6 +132,16 @@ Looking for MCP servers? Check out **[MCP Registry](https://github.com/xuweizhen
 
 ---
 
+## 🛠️ Maintenance
+
+Validate category and skill counts after adding or removing files:
+
+```bash
+node scripts/check-stats.mjs
+```
+
+---
+
 ## 🔗 Related Projects
 
 - **[cursor-free-api](https://github.com/xuweizhengo/cursor-free-api)** — Cursor API compatible gateway for OpenAI and Anthropic clients
