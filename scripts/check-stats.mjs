@@ -1,9 +1,11 @@
-import { readdir, readFile } from "node:fs/promises";
+import { access, readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const rootDir = fileURLToPath(new URL("..", import.meta.url));
 const skillsDir = join(rootDir, "skills");
+const pluginsDir = join(rootDir, "plugins");
+const marketplacePath = join(rootDir, ".agents", "plugins", "marketplace.json");
 const readmePath = join(rootDir, "README.md");
 
 const categories = (await readdir(skillsDir, { withFileTypes: true }))
@@ -44,4 +46,51 @@ console.table(rows);
 console.log(`Total skills: ${total}`);
 console.log(`Non-empty categories: ${activeCategoryCount}`);
 
+await validateMarketplace();
+
 if (failed) process.exit(1);
+
+async function validateMarketplace() {
+  try {
+    await access(marketplacePath);
+  } catch {
+    console.log("Marketplace: not generated yet");
+    return;
+  }
+
+  const marketplace = JSON.parse(await readFile(marketplacePath, "utf8"));
+  const plugins = marketplace.plugins || [];
+  const seen = new Set();
+
+  for (const plugin of plugins) {
+    if (!plugin.name || seen.has(plugin.name)) {
+      console.error(`Invalid or duplicate marketplace plugin: ${plugin.name || "(missing name)"}`);
+      failed = true;
+      continue;
+    }
+    seen.add(plugin.name);
+
+    if (!plugin.source?.path || !plugin.policy?.installation || !plugin.policy?.authentication || !plugin.category) {
+      console.error(`Marketplace entry is missing required fields: ${plugin.name}`);
+      failed = true;
+    }
+
+    const manifestPath = join(pluginsDir, plugin.name, ".codex-plugin", "plugin.json");
+    try {
+      const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+      if (manifest.name !== plugin.name) {
+        console.error(`Plugin manifest name mismatch: ${plugin.name} -> ${manifest.name}`);
+        failed = true;
+      }
+      if (!manifest.description || !manifest.version || !manifest.interface?.displayName) {
+        console.error(`Plugin manifest is missing display metadata: ${plugin.name}`);
+        failed = true;
+      }
+    } catch {
+      console.error(`Missing or invalid plugin manifest: ${plugin.name}`);
+      failed = true;
+    }
+  }
+
+  console.log(`Marketplace plugins: ${plugins.length}`);
+}

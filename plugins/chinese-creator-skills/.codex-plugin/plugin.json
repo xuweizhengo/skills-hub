@@ -1,0 +1,29 @@
+{
+  "name": "chinese-creator-skills",
+  "version": "1.0.0",
+  "description": "Chinese writing, web novel, browser automation, and presentation workflow skills.",
+  "author": {
+    "name": "xuweizhengo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/xuweizhengo/skills-hub",
+  "repository": "https://github.com/xuweizhengo/skills-hub",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Chinese Creator Skills",
+    "shortDescription": "Chinese writing, web novel, browser automation, and presentation workflow skills.",
+    "longDescription": "Chinese writing, web novel, browser automation, and presentation workflow skills.",
+    "developerName": "xuweizhengo",
+    "category": "Chinese",
+    "defaultPrompt": [
+      "帮我梳理这部小说的主线和爽点。",
+      "生成一份中文演示文稿大纲。",
+      "用浏览器自动化检查这个页面。"
+    ],
+    "capabilities": [
+      "skills",
+      "writing",
+      "presentations"
+    ]
+  }
+}

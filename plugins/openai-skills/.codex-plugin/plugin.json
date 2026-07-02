@@ -1,0 +1,29 @@
+{
+  "name": "openai-skills",
+  "version": "1.0.0",
+  "description": "Codex and OpenAI API compatible skill workflows for authoring, packaging, distribution, and evaluation.",
+  "author": {
+    "name": "xuweizhengo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/xuweizhengo/skills-hub",
+  "repository": "https://github.com/xuweizhengo/skills-hub",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "OpenAI Skills",
+    "shortDescription": "Codex and OpenAI API compatible skill workflows for authoring, packaging, distribution, and evaluation.",
+    "longDescription": "Codex and OpenAI API compatible skill workflows for authoring, packaging, distribution, and evaluation.",
+    "developerName": "xuweizhengo",
+    "category": "OpenAI",
+    "defaultPrompt": [
+      "Author and package a Codex-compatible skill.",
+      "Prepare a skill for plugin distribution.",
+      "Design a lightweight eval for a reusable skill."
+    ],
+    "capabilities": [
+      "skills",
+      "documentation",
+      "evaluation"
+    ]
+  }
+}

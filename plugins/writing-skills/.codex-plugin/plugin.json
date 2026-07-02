@@ -1,0 +1,29 @@
+{
+  "name": "writing-skills",
+  "version": "1.0.0",
+  "description": "Writing and content workflow skills for API docs, SEO posts, editorial planning, and prose cleanup.",
+  "author": {
+    "name": "xuweizhengo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/xuweizhengo/skills-hub",
+  "repository": "https://github.com/xuweizhengo/skills-hub",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Writing Skills",
+    "shortDescription": "Writing and content workflow skills for API docs, SEO posts, editorial planning, and prose cleanup.",
+    "longDescription": "Writing and content workflow skills for API docs, SEO posts, editorial planning, and prose cleanup.",
+    "developerName": "xuweizhengo",
+    "category": "Writing",
+    "defaultPrompt": [
+      "Turn these notes into polished documentation.",
+      "Plan an SEO article from this topic.",
+      "Make this draft sound more natural."
+    ],
+    "capabilities": [
+      "skills",
+      "writing",
+      "documentation"
+    ]
+  }
+}

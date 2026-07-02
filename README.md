@@ -5,7 +5,9 @@
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **71 AI coding agent skills** sourced from the most popular skill repositories on GitHub and official OpenAI-compatible workflows. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **71 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+
+Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
 
 ---
 
@@ -124,6 +126,35 @@ Looking for MCP servers? Check out **[MCP Registry](https://github.com/xuweizhen
 
 ---
 
+## 🧩 Codex Plugin Marketplace
+
+The repository includes a local marketplace index at:
+
+```text
+.agents/plugins/marketplace.json
+```
+
+Curated plugin bundles:
+
+| Plugin | Category | Includes |
+|---|---|---|
+| `openai-skills` | OpenAI | OpenAI / Codex authoring, packaging, distribution, and eval skills |
+| `developer-skills` | Development | Development, DevOps, Testing, and Supabase skills |
+| `writing-skills` | Writing | Writing and productivity workflow skills |
+| `security-skills` | Security | Authorized security assessment skills |
+| `chinese-creator-skills` | Chinese | Chinese writing, presentation, design, and creator workflow skills |
+
+Install flow:
+
+```bash
+codex plugin marketplace add .agents/plugins
+codex plugin add openai-skills@skills-hub
+```
+
+Replace `openai-skills` with another plugin bundle when needed, or open Codex and install from the marketplace UI.
+
+---
+
 ## 🚀 Quick Start
 
 1. **Clone the repository**
@@ -148,6 +179,13 @@ Looking for MCP servers? Check out **[MCP Registry](https://github.com/xuweizhen
 Validate category and skill counts after adding or removing files:
 
 ```bash
+node scripts/check-stats.mjs
+```
+
+Regenerate plugin manifests and the marketplace index after changing skill categories:
+
+```bash
+node scripts/generate-marketplace.mjs
 node scripts/check-stats.mjs
 ```
 
@@ -180,7 +218,9 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上最热门的技能仓库和 OpenAI 官方兼容工作流中精选整理的 **71 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **71 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+
+Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，也可以通过精选插件包按主题安装和维护。
 
 ---
 
@@ -299,6 +339,35 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 ---
 
+## 🧩 Codex 插件市场
+
+仓库内置本地 marketplace 索引：
+
+```text
+.agents/plugins/marketplace.json
+```
+
+精选插件包：
+
+| 插件 | 分类 | 包含内容 |
+|---|---|---|
+| `openai-skills` | OpenAI | OpenAI / Codex 技能编写、打包、分发与评估 |
+| `developer-skills` | Development | 开发、DevOps、测试与 Supabase 技能 |
+| `writing-skills` | Writing | 写作与效率工作流技能 |
+| `security-skills` | Security | 授权安全评估技能 |
+| `chinese-creator-skills` | Chinese | 中文写作、演示、设计与创作者工作流技能 |
+
+安装方式：
+
+```bash
+codex plugin marketplace add .agents/plugins
+codex plugin add openai-skills@skills-hub
+```
+
+需要其他插件时，把 `openai-skills` 换成对应插件名，也可以在 Codex 的 marketplace UI 中安装。
+
+---
+
 ## 🚀 快速开始
 
 1. **克隆仓库**
@@ -315,6 +384,23 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 3. **开始使用技能**
    当你的提示词与技能领域匹配时，技能会自动激活。只需描述你想做的事情 — 你的 AI 助手会自动选择最合适的技能。
+
+---
+
+## 🛠️ 维护
+
+添加或删除技能文件后，校验分类和技能数量：
+
+```bash
+node scripts/check-stats.mjs
+```
+
+修改技能分类后，重新生成插件 manifest 和 marketplace 索引：
+
+```bash
+node scripts/generate-marketplace.mjs
+node scripts/check-stats.mjs
+```
 
 ---
 

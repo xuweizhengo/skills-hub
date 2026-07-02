@@ -1,0 +1,29 @@
+{
+  "name": "developer-skills",
+  "version": "1.0.0",
+  "description": "General software delivery skills for API design, REST implementation, cleanup, specs, tests, DevOps, and Supabase.",
+  "author": {
+    "name": "xuweizhengo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/xuweizhengo/skills-hub",
+  "repository": "https://github.com/xuweizhengo/skills-hub",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Developer Skills",
+    "shortDescription": "General software delivery skills for API design, REST implementation, cleanup, specs, tests, DevOps, and Supabase.",
+    "longDescription": "General software delivery skills for API design, REST implementation, cleanup, specs, tests, DevOps, and Supabase.",
+    "developerName": "xuweizhengo",
+    "category": "Development",
+    "defaultPrompt": [
+      "Draft an API contract and implementation plan.",
+      "Generate focused tests for this codebase.",
+      "Review this service for cleanup opportunities."
+    ],
+    "capabilities": [
+      "skills",
+      "development",
+      "testing"
+    ]
+  }
+}

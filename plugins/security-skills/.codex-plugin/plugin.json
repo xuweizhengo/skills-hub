@@ -1,0 +1,29 @@
+{
+  "name": "security-skills",
+  "version": "1.0.0",
+  "description": "Security auditing, recon, web testing, reporting, and assessment skills for authorized security work.",
+  "author": {
+    "name": "xuweizhengo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/xuweizhengo/skills-hub",
+  "repository": "https://github.com/xuweizhengo/skills-hub",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Security Skills",
+    "shortDescription": "Security auditing, recon, web testing, reporting, and assessment skills for authorized security work.",
+    "longDescription": "Security auditing, recon, web testing, reporting, and assessment skills for authorized security work.",
+    "developerName": "xuweizhengo",
+    "category": "Security",
+    "defaultPrompt": [
+      "Review this app for common web security risks.",
+      "Summarize these findings for an executive report.",
+      "Check this dependency list for vulnerable packages."
+    ],
+    "capabilities": [
+      "skills",
+      "security",
+      "reporting"
+    ]
+  }
+}

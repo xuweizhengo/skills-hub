@@ -1,0 +1,68 @@
+{
+  "name": "skills-hub",
+  "interface": {
+    "displayName": "Skills Hub"
+  },
+  "plugins": [
+    {
+      "name": "openai-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/openai-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "OpenAI"
+    },
+    {
+      "name": "developer-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/developer-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "writing-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/writing-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Writing"
+    },
+    {
+      "name": "security-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/security-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "chinese-creator-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/chinese-creator-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Chinese"
+    }
+  ]
+}
