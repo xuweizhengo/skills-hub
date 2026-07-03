@@ -6,19 +6,19 @@ General software delivery skills for API design, REST implementation, cleanup, s
 
 | Skill | Category | Description |
 |---|---|---|
-| [agent-patterns](./skills/agent-patterns.md) | development | Execute this skill should be used when the user asks about "SPAWN REQUEST |
-| [api-contract](./skills/api-contract.md) | development | Configure this skill should be used when the user asks about "API contract", |
-| [cleanup-code](./skills/cleanup-code.md) | development | Comprehensive codebase cleanup across 11 quality dimensions: dead code, |
-| [generating-rest-apis](./skills/generating-rest-apis.md) | development | Generate complete REST API implementations from OpenAPI specifications |
-| [spec-writing](./skills/spec-writing.md) | development | Execute this skill should be used when the user asks about "writing |
-| [sprint-workflow](./skills/sprint-workflow.md) | development | Execute this skill should be used when the user asks about "how sprints |
-| [building-cicd-pipelines](./skills/building-cicd-pipelines.md) | devops | Execute use when you need to work with deployment and CI/CD. |
-| [building-terraform-modules](./skills/building-terraform-modules.md) | devops | Execute this skill empowers AI assistant to build reusable terraform |
-| [generating-docker-compose-files](./skills/generating-docker-compose-files.md) | devops | Execute use when you need to work with Docker Compose. |
-| [supabase-postgres-best-practices](./skills/supabase-postgres-best-practices.md) | supabase | Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations. |
-| [supabase](./skills/supabase.md) | supabase | Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector). |
-| [generating-unit-tests](./skills/generating-unit-tests.md) | testing | Test automatically generate comprehensive unit tests from source code |
-| [running-e2e-tests](./skills/running-e2e-tests.md) | testing | Execute end-to-end tests covering full user workflows across frontend |
+| [agent-patterns](./skills/agent-patterns.md) | development | Execute this skill should be used when the user asks about "SPAWN REQUEST format", "agent reports", "agent coordination", "parallel agents", "report format", "agent communication", or needs to understand how agents co... |
+| [api-contract](./skills/api-contract.md) | development | Configure this skill should be used when the user asks about "API contract", "api-contract.md", "shared interface", "TypeScript interfaces", "request response schemas", "endpoint design", or needs guidance on designin... |
+| [cleanup-code](./skills/cleanup-code.md) | development | Comprehensive codebase cleanup across 11 quality dimensions: dead code, duplication, weak types, circular deps, defensive cruft, legacy code, AI slop, type consolidation, security, performance, and async patterns. Ana... |
+| [generating-rest-apis](./skills/generating-rest-apis.md) | development | Generate complete REST API implementations from OpenAPI specifications or database schemas. Use when generating RESTful API implementations. Trigger with phrases like "generate REST API", "create RESTful API", or "bui... |
+| [spec-writing](./skills/spec-writing.md) | development | Execute this skill should be used when the user asks about "writing specs", "specs.md format", "how to write specifications", "sprint requirements", "testing configuration", "scope definition", or needs guidance on cr... |
+| [sprint-workflow](./skills/sprint-workflow.md) | development | Execute this skill should be used when the user asks about "how sprints work", "sprint phases", "iteration workflow", "convergent development", "sprint lifecycle", "when to use sprints", or wants to understand the spr... |
+| [building-cicd-pipelines](./skills/building-cicd-pipelines.md) | devops | Execute use when you need to work with deployment and CI/CD. This skill provides deployment automation and pipeline orchestration with comprehensive guidance and automation. Trigger with phrases like "deploy applicati... |
+| [building-terraform-modules](./skills/building-terraform-modules.md) | devops | Execute this skill empowers AI assistant to build reusable terraform modules based on user specifications. it leverages the terraform-module-builder plugin to generate production-ready, well-documented terraform modul... |
+| [generating-docker-compose-files](./skills/generating-docker-compose-files.md) | devops | Execute use when you need to work with Docker Compose. This skill provides Docker Compose file generation with comprehensive guidance and automation. Trigger with phrases like "generate docker-compose", "create compos... |
+| [supabase-postgres-best-practices](./skills/supabase-postgres-best-practices.md) | supabase |  |
+| [supabase](./skills/supabase.md) | supabase |  |
+| [generating-unit-tests](./skills/generating-unit-tests.md) | testing | Test automatically generate comprehensive unit tests from source code covering happy paths, edge cases, and error conditions. Use when creating test coverage for functions, classes, or modules. Trigger with phrases li... |
+| [running-e2e-tests](./skills/running-e2e-tests.md) | testing | Execute end-to-end tests covering full user workflows across frontend and backend. Use when performing specialized testing. Trigger with phrases like "run end-to-end tests", "test user flows", or "execute E2E suite". |
 
 ## Install
 

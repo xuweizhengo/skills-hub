@@ -53,6 +53,18 @@
       "category": "Security"
     },
     {
+      "name": "design-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/design-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "chinese-creator-skills",
       "source": {
         "source": "local",

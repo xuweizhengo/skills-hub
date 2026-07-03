@@ -61,6 +61,19 @@ const pluginDefinitions = [
     skillCategories: ["security"]
   },
   {
+    name: "design-skills",
+    displayName: "Design Skills",
+    category: "Design",
+    description: "Frontend UI design, review, design system, dashboard, mobile, and design brief workflow skills.",
+    defaultPrompt: [
+      "Design a polished frontend interface for this app.",
+      "Review this UI for polish and usability issues.",
+      "Create a DESIGN.md for this product."
+    ],
+    capabilities: ["skills", "design", "frontend"],
+    skillCategories: ["design"]
+  },
+  {
     name: "chinese-creator-skills",
     displayName: "Chinese Creator Skills",
     category: "Chinese",
@@ -71,7 +84,7 @@ const pluginDefinitions = [
       "用浏览器自动化检查这个页面。"
     ],
     capabilities: ["skills", "writing", "presentations"],
-    skillCategories: ["chinese", "design"]
+    skillCategories: ["chinese"]
   }
 ];
 
@@ -179,7 +192,7 @@ async function writeMarketplace() {
 
 function pluginReadme(plugin, skills) {
   const rows = skills
-    .map((skill) => `| [${skill.name}](./skills/${skill.file}) | ${skill.category} | ${singleLine(skill.description)} |`)
+    .map((skill) => `| [${skill.name}](./skills/${skill.file}) | ${skill.category} | ${tableCell(skill.description)} |`)
     .join("\n");
 
   return `# ${plugin.displayName}
@@ -205,12 +218,43 @@ Add this marketplace to Codex from the repository root, then install \`${plugin.
 }
 
 function frontmatterValue(content, key) {
-  const match = content.match(new RegExp(`^${key}:\\s*(.+)$`, "m"));
-  return match?.[1]?.trim().replace(/^['"]|['"]$/g, "");
+  const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!frontmatter) return "";
+
+  const lines = frontmatter[1].split(/\r?\n/);
+  const keyPrefix = `${key}:`;
+  const startIndex = lines.findIndex((line) => line.startsWith(keyPrefix));
+  if (startIndex === -1) return "";
+
+  const firstValue = lines[startIndex].slice(keyPrefix.length).trim();
+  const isBlockScalar = firstValue === "|" || firstValue === ">" || firstValue.startsWith("|") || firstValue.startsWith(">");
+  const values = isBlockScalar ? [] : [firstValue];
+
+  for (let index = startIndex + 1; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (/^[A-Za-z0-9_-]+:\s*/.test(line)) break;
+    if (!line.startsWith(" ") && line.trim()) break;
+    values.push(line.trim());
+  }
+
+  return values
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^['"]|['"]$/g, "")
+    .replace(/''/g, "'");
 }
 
 function singleLine(value) {
   return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function tableCell(value) {
+  const text = singleLine(value)
+    .replace(/\\\s*/g, " ")
+    .replace(/\|/g, "\\|");
+  if (text.length <= 220) return text;
+  return `${text.slice(0, 217).trimEnd()}...`;
 }
 
 async function writeJson(filePath, value) {

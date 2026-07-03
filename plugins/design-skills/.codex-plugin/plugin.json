@@ -1,0 +1,29 @@
+{
+  "name": "design-skills",
+  "version": "1.0.0",
+  "description": "Frontend UI design, review, design system, dashboard, mobile, and design brief workflow skills.",
+  "author": {
+    "name": "xuweizhengo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/xuweizhengo/skills-hub",
+  "repository": "https://github.com/xuweizhengo/skills-hub",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design Skills",
+    "shortDescription": "Frontend UI design, review, design system, dashboard, mobile, and design brief workflow skills.",
+    "longDescription": "Frontend UI design, review, design system, dashboard, mobile, and design brief workflow skills.",
+    "developerName": "xuweizhengo",
+    "category": "Design",
+    "defaultPrompt": [
+      "Design a polished frontend interface for this app.",
+      "Review this UI for polish and usability issues.",
+      "Create a DESIGN.md for this product."
+    ],
+    "capabilities": [
+      "skills",
+      "design",
+      "frontend"
+    ]
+  }
+}

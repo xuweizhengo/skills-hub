@@ -1,11 +1,11 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-71-blue?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-77-blue?style=flat-square)](#)
 [![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **71 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **77 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
 Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
 
@@ -43,10 +43,16 @@ Domain-specific skills for Chinese web novel workflows, browser automation, and 
 | `story-short-scan` | Fast chapter scan for short works |
 | `story-short-write` | Short-form story drafting |
 
-### 🎨 Design (1 skill)
+### 🎨 Design (7 skills)
 
 | Skill | Description |
 |---|---|
+| `frontend-ui-design` | Create distinctive, production-grade frontend interfaces |
+| `ui-design-review` | Review frontend UI for polish, UX quality, responsiveness, and accessibility |
+| `design-system-builder` | Create or extend reusable design systems and component foundations |
+| `saas-dashboard-design` | Design dense, professional SaaS dashboards and operational tools |
+| `mobile-ui-design` | Design mobile-first app screens and responsive mobile web interfaces |
+| `design-brief-generator` | Generate practical DESIGN.md files and durable UI design briefs |
 | `website-generator` | Generate complete, production-ready websites from prompts |
 
 ### 💻 Development (6 skills)
@@ -142,7 +148,8 @@ Curated plugin bundles:
 | `developer-skills` | Development | Development, DevOps, Testing, and Supabase skills |
 | `writing-skills` | Writing | Writing and productivity workflow skills |
 | `security-skills` | Security | Authorized security assessment skills |
-| `chinese-creator-skills` | Chinese | Chinese writing, presentation, design, and creator workflow skills |
+| `design-skills` | Design | Frontend UI design, review, design system, dashboard, and mobile UI skills |
+| `chinese-creator-skills` | Chinese | Chinese writing, presentation, and creator workflow skills |
 
 Install flow:
 
@@ -213,12 +220,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-71-blue?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-77-blue?style=flat-square)](#)
 [![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **71 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **77 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
 Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，也可以通过精选插件包按主题安装和维护。
 
@@ -256,10 +263,16 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 | `story-short-scan` | 短篇作品快速章节扫描 |
 | `story-short-write` | 短篇小说草稿撰写 |
 
-### 🎨 设计 (1 个技能)
+### 🎨 设计 (7 个技能)
 
 | 技能 | 描述 |
 |---|---|
+| `frontend-ui-design` | 创建有辨识度、可交付的前端界面 |
+| `ui-design-review` | 审查前端 UI 的视觉质感、UX、响应式与可访问性 |
+| `design-system-builder` | 创建或扩展可复用的设计系统与组件基础 |
+| `saas-dashboard-design` | 设计高密度、专业的 SaaS 仪表盘和运营工具 |
+| `mobile-ui-design` | 设计移动优先 App 屏幕和响应式移动 Web 界面 |
+| `design-brief-generator` | 生成实用的 DESIGN.md 和长期可复用的 UI 设计 brief |
 | `website-generator` | 根据提示词生成完整的可上线网站 |
 
 ### 💻 开发 (6 个技能)
@@ -355,7 +368,8 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 | `developer-skills` | Development | 开发、DevOps、测试与 Supabase 技能 |
 | `writing-skills` | Writing | 写作与效率工作流技能 |
 | `security-skills` | Security | 授权安全评估技能 |
-| `chinese-creator-skills` | Chinese | 中文写作、演示、设计与创作者工作流技能 |
+| `design-skills` | Design | 前端 UI 设计、审查、设计系统、仪表盘与移动端技能 |
+| `chinese-creator-skills` | Chinese | 中文写作、演示与创作者工作流技能 |
 
 安装方式：
 
