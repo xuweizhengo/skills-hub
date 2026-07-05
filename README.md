@@ -1,13 +1,13 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-77-blue?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-78-blue?style=flat-square)](#)
 [![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **77 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **78 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
-Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
+Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files or bundled skill folders, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
 
 ---
 
@@ -15,13 +15,13 @@ Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain a
 
 Each skill is a self-contained instruction set that extends your AI coding agent with specialized knowledge, workflows, and tool integrations. Drop them into your agent's skills directory and start using them immediately.
 
-Skill files are organized by category in the repository root — no nested folder hunting, no complex setup.
+Skill files and bundled skill folders are organized by category in the repository root — no complex setup.
 
 ---
 
 ## 🗂️ Categories
 
-### 🇨🇳 Chinese (14 skills)
+### 🇨🇳 Chinese (15 skills)
 Domain-specific skills for Chinese web novel workflows, browser automation, and presentations.
 
 | Skill | Description |
@@ -31,6 +31,7 @@ Domain-specific skills for Chinese web novel workflows, browser automation, and 
 | `story-scanning` | Bulk novel chapter scanning and indexing |
 | `story-cover` | Generate novel cover art |
 | `browser-cdp` | Chrome DevTools Protocol browser automation |
+| `douyin-video-puller` | Pull public Douyin videos, metadata, comments, keyframes, and reports |
 | `guizang-ppt` | Guizang-style presentation generation |
 | `story-deslop` | Novel de-slop / cleanup tooling |
 | `story-import` | Import novel chapters from external sources |
@@ -220,14 +221,14 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-77-blue?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-78-blue?style=flat-square)](#)
 [![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **77 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **78 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
-Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，也可以通过精选插件包按主题安装和维护。
+Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，带脚本和参考资料的技能也可以作为文件夹使用，还可以通过精选插件包按主题安装和维护。
 
 ---
 
@@ -235,13 +236,13 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 
 每个技能都是一个独立的指令集，为你的 AI 编程助手注入专业知识、工作流程和工具集成能力。将其放入助手的技能目录即可立即使用。
 
-所有技能文件按分类直接存放于仓库根目录 — 无需层层翻找文件夹，无需复杂配置。
+所有技能文件和带资源的技能文件夹按分类直接存放于仓库根目录 — 无需复杂配置。
 
 ---
 
 ## 🗂️ 分类详情
 
-### 🇨🇳 中文 (14 个技能)
+### 🇨🇳 中文 (15 个技能)
 面向中文网文创作流程、浏览器自动化和演示文稿的领域专用技能。
 
 | 技能 | 描述 |
@@ -251,6 +252,7 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 | `story-scanning` | 批量章节扫描与索引 |
 | `story-cover` | 小说封面图生成 |
 | `browser-cdp` | Chrome DevTools Protocol 浏览器自动化 |
+| `douyin-video-puller` | 拉取公开视频、元数据、评论、关键帧和本地报告 |
 | `guizang-ppt` | 归藏风格演示文稿生成 |
 | `story-deslop` | 小说内容清理去冗工具 |
 | `story-import` | 从外部来源导入小说章节 |

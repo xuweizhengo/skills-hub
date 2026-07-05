@@ -7,6 +7,7 @@ Chinese writing, web novel, browser automation, and presentation workflow skills
 | Skill | Category | Description |
 |---|---|---|
 | [browser-cdp](./skills/browser-cdp.md) | chinese |  |
+| [douyin-video-puller](./skills/douyin-video-puller/SKILL.md) | chinese | Pull public Douyin videos and structured data from a Douyin share link, copied share text, full video URL, or aweme ID. Use when Codex needs to download a Douyin video, extract share-page metadata, generate browser-si... |
 | [guizang-ppt](./skills/guizang-ppt.md) | chinese |  |
 | [story-cover](./skills/story-cover.md) | chinese |  |
 | [story-deslop](./skills/story-deslop.md) | chinese |  |

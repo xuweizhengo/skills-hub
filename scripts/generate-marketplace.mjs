@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { access, copyFile, cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -108,20 +108,27 @@ async function readSkillRows() {
 
   const rows = [];
   for (const category of categories) {
-    const files = (await readdir(join(skillsDir, category), { withFileTypes: true }))
-      .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
-      .map((entry) => entry.name)
-      .sort();
+    const entries = (await readdir(join(skillsDir, category), { withFileTypes: true }))
+      .filter(isSkillEntry)
+      .sort((a, b) => a.name.localeCompare(b.name));
 
-    for (const file of files) {
+    for (const entry of entries) {
+      const isDirectorySkill = entry.isDirectory();
+      const file = isDirectorySkill ? join(entry.name, "SKILL.md") : entry.name;
       const filePath = join(skillsDir, category, file);
+      if (isDirectorySkill && !(await exists(filePath))) continue;
+
       const content = await readFile(filePath, "utf8");
+      const skillName = frontmatterValue(content, "name") || entry.name.replace(/\.md$/, "");
       rows.push({
         category,
         file,
-        name: frontmatterValue(content, "name") || file.replace(/\.md$/, ""),
+        name: skillName,
         description: frontmatterValue(content, "description") || "",
         absolutePath: filePath,
+        sourcePath: isDirectorySkill ? join(skillsDir, category, entry.name) : filePath,
+        pluginPath: isDirectorySkill ? entry.name : entry.name,
+        isDirectorySkill,
         relativePath: `../../skills/${category}/${file}`
       });
     }
@@ -160,11 +167,29 @@ async function writePlugin(plugin, skills) {
   };
 
   for (const skill of skills) {
-    await copyFile(skill.absolutePath, join(pluginSkillsDir, skill.file));
+    const target = join(pluginSkillsDir, skill.pluginPath);
+    if (skill.isDirectorySkill) {
+      await cp(skill.sourcePath, target, { recursive: true });
+    } else {
+      await copyFile(skill.sourcePath, target);
+    }
   }
 
   await writeJson(join(metaDir, "plugin.json"), manifest);
   await writeFile(join(pluginDir, "README.md"), pluginReadme(plugin, skills), "utf8");
+}
+
+function isSkillEntry(entry) {
+  return (entry.isFile() && entry.name.endsWith(".md")) || entry.isDirectory();
+}
+
+async function exists(filePath) {
+  try {
+    await access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 async function writeMarketplace() {
@@ -192,7 +217,7 @@ async function writeMarketplace() {
 
 function pluginReadme(plugin, skills) {
   const rows = skills
-    .map((skill) => `| [${skill.name}](./skills/${skill.file}) | ${skill.category} | ${tableCell(skill.description)} |`)
+    .map((skill) => `| [${skill.name}](./skills/${skill.file.replace(/\\/g, "/")}) | ${skill.category} | ${tableCell(skill.description)} |`)
     .join("\n");
 
   return `# ${plugin.displayName}

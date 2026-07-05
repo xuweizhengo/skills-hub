@@ -17,10 +17,10 @@ let total = 0;
 const rows = [];
 
 for (const category of categories) {
-  const files = (await readdir(join(skillsDir, category), { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"));
-  total += files.length;
-  rows.push({ category, count: files.length });
+  const entries = (await readdir(join(skillsDir, category), { withFileTypes: true }))
+    .filter((entry) => (entry.isFile() && entry.name.endsWith(".md")) || entry.isDirectory());
+  total += entries.length;
+  rows.push({ category, count: entries.length });
 }
 
 const activeCategoryCount = rows.filter((row) => row.count > 0).length;

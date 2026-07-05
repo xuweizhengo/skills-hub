@@ -1,0 +1,4 @@
+interface:
+  display_name: "Douyin Video Puller"
+  short_description: "Pull Douyin videos, metadata, comments, keyframes, and reports."
+  default_prompt: "Use $douyin-video-puller to pull a Douyin link into video files, structured comments, keyframes, and a report."
