@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Legibility Review"
+  short_description: "Review repos for AI-agent change risk"
+  default_prompt: "Use $agent-legibility-review to assess future-agent navigation and modification risk without replacing architecture boundary decisions, and report only findings that survive a counter-evidence pass."
