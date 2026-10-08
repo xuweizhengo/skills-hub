@@ -1,0 +1,211 @@
+name: Daily skills discovery and upstream audit
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/daily-skills-audit.yml
+  schedule:
+    - cron: '23 8 * * *'
+      timezone: Asia/Tokyo
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: daily-skills-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Discover candidates and check tracked upstreams
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import datetime as dt
+          import json
+          import os
+          import pathlib
+          import re
+          import urllib.parse
+          import urllib.request
+
+          token = os.environ["GH_TOKEN"]
+          repo_root = pathlib.Path.cwd()
+          report_path = pathlib.Path("/tmp/skills-hub-daily-audit.md")
+          now = dt.datetime.now(dt.timezone.utc)
+          since = (now - dt.timedelta(days=7)).date().isoformat()
+
+          def api(path, params=None):
+              if params:
+                  path += ("&" if "?" in path else "?") + urllib.parse.urlencode(params)
+              req = urllib.request.Request(
+                  "https://api.github.com/" + path.lstrip("/"),
+                  headers={
+                      "Accept": "application/vnd.github+json",
+                      "Authorization": f"Bearer {token}",
+                      "X-GitHub-Api-Version": "2026-03-10",
+                      "User-Agent": "skills-hub-daily-audit",
+                  },
+              )
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  return json.load(resp)
+
+          # GitHub does not expose a public Trending API. These queries approximate
+          # same-day discovery by combining recent pushes with star ordering.
+          queries = [
+              f'"agent skills" in:name,description,readme pushed:>={since}',
+              f'"claude code" skills in:name,description,readme pushed:>={since}',
+              f'codex skills in:name,description,readme pushed:>={since}',
+              f'cursor skills in:name,description,readme pushed:>={since}',
+              f'mcp plugin agent in:name,description,readme pushed:>={since}',
+          ]
+
+          found = {}
+          for query in queries:
+              try:
+                  data = api("search/repositories", {
+                      "q": query,
+                      "sort": "stars",
+                      "order": "desc",
+                      "per_page": 10,
+                  })
+              except Exception as exc:
+                  print(f"search failed for {query!r}: {exc}")
+                  continue
+              for item in data.get("items", []):
+                  found[item["full_name"]] = item
+
+          candidates = []
+          skipped = []
+          for name, item in found.items():
+              license_id = ((item.get("license") or {}).get("spdx_id") or "").strip()
+              stars = int(item.get("stargazers_count") or 0)
+              pushed = item.get("pushed_at") or ""
+              reasons = []
+              if item.get("archived") or item.get("disabled"):
+                  reasons.append("archived/disabled")
+              if item.get("fork"):
+                  reasons.append("fork")
+              if license_id in {"", "NOASSERTION", "OTHER"}:
+                  reasons.append("license unclear")
+              if stars < 10:
+                  reasons.append("low signal (<10 stars)")
+              if reasons:
+                  skipped.append((name, reasons, stars, license_id or "unknown", pushed))
+              else:
+                  candidates.append((name, stars, license_id, pushed, item.get("html_url", ""), item.get("description") or ""))
+
+          # Check every SOURCE.md that records tracked upstream blob SHAs.
+          tracked = []
+          blob_pattern = re.compile(r"^- Upstream `([^`]+)` blob at sync: `([0-9a-f]{40})`$", re.M)
+          upstream_pattern = re.compile(r"^- Upstream: https://github\.com/([^/]+)/([^/]+)/tree/([^/]+)/(.+)$", re.M)
+
+          for source in sorted(repo_root.glob("skills/**/SOURCE.md")):
+              text = source.read_text(encoding="utf-8")
+              upstream_match = upstream_pattern.search(text)
+              blob_matches = blob_pattern.findall(text)
+              if not upstream_match or not blob_matches:
+                  continue
+              owner, repo, ref, base_path = upstream_match.groups()
+              skill_name = source.parent.name
+              for rel_path, recorded_sha in blob_matches:
+                  upstream_path = f"{base_path.rstrip('/')}/{rel_path}"
+                  status = "unknown"
+                  current_sha = ""
+                  error = ""
+                  try:
+                      data = api(f"repos/{owner}/{repo}/contents/{urllib.parse.quote(upstream_path, safe='/')}", {"ref": ref})
+                      current_sha = data.get("sha", "") if isinstance(data, dict) else ""
+                      if not current_sha:
+                          status = "missing"
+                      elif current_sha == recorded_sha:
+                          status = "unchanged"
+                      else:
+                          status = "changed"
+                  except Exception as exc:
+                      status = "error"
+                      error = str(exc)
+                  tracked.append((skill_name, f"{owner}/{repo}", rel_path, status, recorded_sha, current_sha, error))
+
+          candidates.sort(key=lambda x: (-x[1], x[0].lower()))
+          skipped.sort(key=lambda x: (-x[2], x[0].lower()))
+
+          lines = [
+              "# Skills Hub Daily Audit",
+              "",
+              f"Generated: {now.isoformat(timespec='seconds')}",
+              "",
+              "> Discovery is heuristic. Repositories passing this report are candidates, not automatically trusted code. Semantic/security review is still required before importing executable content.",
+              "",
+              "## Tracked upstream status",
+              "",
+              "| Skill | Upstream | File | Status | Recorded | Current |",
+              "|---|---|---|---|---|---|",
+          ]
+          if tracked:
+              for skill, upstream, rel_path, status, recorded, current, error in tracked:
+                  current_display = current[:12] if current else (error[:60] if error else "-")
+                  lines.append(f"| `{skill}` | `{upstream}` | `{rel_path}` | **{status}** | `{recorded[:12]}` | `{current_display}` |")
+          else:
+              lines.append("| - | - | - | no tracked SOURCE.md entries found | - | - |")
+
+          lines += [
+              "",
+              "## Candidate repositories",
+              "",
+              "Passed basic gates: non-fork, non-archived, SPDX license present, >=10 stars, recently pushed.",
+              "",
+              "| Repository | Stars | License | Last push | Description |",
+              "|---|---:|---|---|---|",
+          ]
+          if candidates:
+              for name, stars, license_id, pushed, url, description in candidates[:25]:
+                  description = description.replace("|", "\\|").replace("\n", " ")[:160]
+                  lines.append(f"| [{name}]({url}) | {stars} | `{license_id}` | {pushed[:10]} | {description} |")
+          else:
+              lines.append("| - | - | - | - | No repositories passed the basic gates today |")
+
+          lines += [
+              "",
+              "## Automatically skipped",
+              "",
+              "| Repository | Stars | License | Reasons |",
+              "|---|---:|---|---|",
+          ]
+          if skipped:
+              for name, reasons, stars, license_id, pushed in skipped[:30]:
+                  lines.append(f"| `{name}` | {stars} | `{license_id}` | {', '.join(reasons)} |")
+          else:
+              lines.append("| - | - | - | none |")
+
+          report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print(report_path.read_text(encoding="utf-8"))
+          PY
+
+          cat /tmp/skills-hub-daily-audit.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish latest audit issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          title="Skills Hub Daily Audit"
+          issue_number="$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "$title in:title" --json number,title --jq '.[] | select(.title == "Skills Hub Daily Audit") | .number' | head -n1)"
+          if [ -n "$issue_number" ]; then
+            gh issue edit "$issue_number" --repo "$GITHUB_REPOSITORY" --body-file /tmp/skills-hub-daily-audit.md
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body-file /tmp/skills-hub-daily-audit.md
+          fi
