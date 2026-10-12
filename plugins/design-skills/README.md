@@ -6,6 +6,7 @@ Frontend UI design, review, design system, dashboard, mobile, and design brief w
 
 | Skill | Category | Description |
 |---|---|---|
+| [accessibility](./skills/accessibility/SKILL.md) | design | Audit and improve web accessibility following WCAG 2.2 guidelines. Use when asked to "improve accessibility", "a11y audit", "WCAG compliance", "screen reader support", "keyboard navigation", or "make accessible". |
 | [design-brief-generator](./skills/design-brief-generator.md) | design | Generate or update a practical DESIGN.md or UI design brief for an app, website, product, or brand. Use when the user wants durable design direction, visual principles, tokens, component guidance, UX rules, or a style... |
 | [design-system-builder](./skills/design-system-builder.md) | design | Create, extend, or refactor design systems for frontend products. Use when defining design tokens, component libraries, theme systems, UI foundations, Storybook-style component specs, accessibility states, or consiste... |
 | [frontend-ui-design](./skills/frontend-ui-design.md) | design | Create distinctive, production-grade frontend interfaces. Use when building or redesigning web pages, React/Vue/Svelte components, landing pages, dashboards, app screens, or styling existing frontend UI with strong vi... |

@@ -1,11 +1,11 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-81-blue?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-82-blue?style=flat-square)](#)
 [![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **81 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **82 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
 Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files or bundled skill folders, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
 
@@ -44,10 +44,11 @@ Domain-specific skills for Chinese web novel workflows, browser automation, and 
 | `story-short-scan` | Fast chapter scan for short works |
 | `story-short-write` | Short-form story drafting |
 
-### 🎨 Design (7 skills)
+### 🎨 Design (8 skills)
 
 | Skill | Description |
 |---|---|
+| `accessibility` | Audit and improve web accessibility against WCAG 2.2, including keyboard, screen-reader and ARIA checks |
 | `frontend-ui-design` | Create distinctive, production-grade frontend interfaces |
 | `ui-design-review` | Review frontend UI for polish, UX quality, responsiveness, and accessibility |
 | `design-system-builder` | Create or extend reusable design systems and component foundations |
@@ -224,12 +225,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-81-blue?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-82-blue?style=flat-square)](#)
 [![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **81 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **82 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
 Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，带脚本和参考资料的技能也可以作为文件夹使用，还可以通过精选插件包按主题安装和维护。
 
@@ -268,10 +269,11 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 | `story-short-scan` | 短篇作品快速章节扫描 |
 | `story-short-write` | 短篇小说草稿撰写 |
 
-### 🎨 设计 (7 个技能)
+### 🎨 设计 (8 个技能)
 
 | 技能 | 描述 |
 |---|---|
+| `accessibility` | 基于 WCAG 2.2 审查并改进网页无障碍访问，包括键盘、屏幕阅读器与 ARIA |
 | `frontend-ui-design` | 创建有辨识度、可交付的前端界面 |
 | `ui-design-review` | 审查前端 UI 的视觉质感、UX、响应式与可访问性 |
 | `design-system-builder` | 创建或扩展可复用的设计系统与组件基础 |
