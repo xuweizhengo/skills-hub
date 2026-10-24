@@ -7,6 +7,7 @@ General software delivery skills for API design, REST implementation, cleanup, s
 | Skill | Category | Description |
 |---|---|---|
 | [analytics](./skills/analytics/SKILL.md) | development | Plan and audit GA4/GTM tracking, event naming, UTMs, conversion measurement and data quality. |
+| [best-practices](./skills/best-practices/SKILL.md) | development | Apply modern web development best practices for security, compatibility, and code quality. Use when asked to "apply best practices", "security audit", "modernize code", "code quality review", or "check for vulnerabilities". |
 | [agent-legibility-review](./skills/agent-legibility-review.md) | development | Framework-agnostic repository review from the perspective of a future AI coding agent. Use when Codex needs to evaluate whether a repo is easy for agents to find, understand, modify, and safely evolve with minimal amb... |
 | [agent-patterns](./skills/agent-patterns.md) | development | Execute this skill should be used when the user asks about "SPAWN REQUEST format", "agent reports", "agent coordination", "parallel agents", "report format", "agent communication", or needs to understand how agents co... |
 | [api-contract](./skills/api-contract.md) | development | Configure this skill should be used when the user asks about "API contract", "api-contract.md", "shared interface", "TypeScript interfaces", "request response schemas", "endpoint design", or needs guidance on designin... |
