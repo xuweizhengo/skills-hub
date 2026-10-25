@@ -17,4 +17,4 @@ Organize the result as: Executive Summary; Agent Legibility Score; High-Risk Fin
 
 Do not turn this into a generic style, maintainability, security, performance, or architecture review. Only flag issues that materially affect future-agent navigation or modification safety.
 
-Source: `ruicore/codex-skills`, Apache-2.0. The canonical bundled copy and provenance are under `skills/development/agent-legibility-review/`.
+Created by Ray Carter (ruicore). Source: `ruicore/codex-skills`, Apache-2.0. The canonical bundled copy and provenance are under `skills/development/agent-legibility-review/`.

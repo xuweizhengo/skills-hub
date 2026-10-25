@@ -89,4 +89,4 @@ Generate candidate findings, then challenge each one before reporting it. Search
 - Do not use file length or folder count as a finding without a concrete navigation, authority, context-selection, locality or impact-prediction failure mode.
 - Prefer small improvements that create authoritative locations, name hidden rules, reduce duplicate concepts, or improve navigation.
 
-> Synced from `ruicore/codex-skills` (`skills/agent-legibility-review`) under Apache-2.0. This local copy is condensed for portable cross-agent use; see `SOURCE.md` for provenance.
+> Created by Ray Carter (ruicore). Synced from `ruicore/codex-skills` (`skills/agent-legibility-review`) under Apache-2.0. This local copy is condensed for portable cross-agent use; see `SOURCE.md` for provenance.
