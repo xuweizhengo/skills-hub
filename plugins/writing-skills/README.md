@@ -7,6 +7,7 @@ Writing and content workflow skills for API docs, SEO posts, editorial planning,
 | Skill | Category | Description |
 |---|---|---|
 | [action-items-todoist](./skills/action-items-todoist.md) | productivity | Extract action items from today's Granola/Grain meetings, create Todoist tasks, complete fulfilled tasks, and draft meeting-triggered follow-up emails. Use when running the daily action items cron, post-meeting cron,... |
+| [customer-research](./skills/customer-research/SKILL.md) | productivity | Conduct and synthesize customer research using interviews, surveys, reviews and online communities, with evidence and bias checks. |
 | [email-drafting](./skills/email-drafting.md) | productivity | Draft email replies for Gonto's Gmail accounts (m@gon.to, gonto@hypergrowthpartners.com).  Handles intro acceptances, scheduling intent, thanks/ack, and positive short replies.  Use when user asks to draft or reply to... |
 | [executive-digest](./skills/executive-digest.md) | productivity | Generate the daily executive digest  u2014 a single WhatsApp summary  of everything needing attention: stalled scheduling, pending intros, unanswered  emails, promised follow-ups, open Todoist tasks, and upcoming cale... |
 | [generating-smart-commits](./skills/generating-smart-commits.md) | productivity | Execute use when generating conventional commit messages from staged git changes. Trigger with phrases like "create commit message", "generate smart commit", "/commit-smart", or "/gc". Automatically analyzes changes t... |

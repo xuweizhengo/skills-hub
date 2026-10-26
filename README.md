@@ -1,11 +1,11 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-87-blue?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-88-blue?style=flat-square)](#)
 [![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **87 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **88 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
 Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files or bundled skill folders, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
 
@@ -84,11 +84,12 @@ Domain-specific skills for Chinese web novel workflows, browser automation, and 
 | `building-terraform-modules` | Infrastructure-as-code module authoring |
 | `generating-docker-compose-files` | Docker Compose file generation and validation |
 
-### 📋 Productivity (6 skills)
+### 📋 Productivity (7 skills)
 
 | Skill | Description |
 |---|---|
 | `action-items-todoist` | Extract action items and sync to Todoist |
+| `customer-research` | Research customer needs using interviews, surveys, reviews, and voice-of-customer evidence |
 | `email-drafting` | Professional email composition and review |
 | `executive-digest` | Summarize long documents for executive review |
 | `generating-smart-commits` | Context-aware Git commit message generation |
@@ -230,12 +231,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-87-blue?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-88-blue?style=flat-square)](#)
 [![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **87 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **88 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
 Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，带脚本和参考资料的技能也可以作为文件夹使用，还可以通过精选插件包按主题安装和维护。
 
@@ -314,11 +315,12 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 | `building-terraform-modules` | 基础设施即代码模块编写 |
 | `generating-docker-compose-files` | Docker Compose 文件生成与验证 |
 
-### 📋 效率 (6 个技能)
+### 📋 效率 (7 个技能)
 
 | 技能 | 描述 |
 |---|---|
 | `action-items-todoist` | 提取待办事项并同步至 Todoist |
+| `customer-research` | 基于访谈、问卷、评论和用户原声研究客户需求与产品机会 |
 | `email-drafting` | 专业邮件撰写与审阅 |
 | `executive-digest` | 长文档执行摘要生成 |
 | `generating-smart-commits` | 上下文感知的 Git 提交信息生成 |
