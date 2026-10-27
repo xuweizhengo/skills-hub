@@ -1,11 +1,11 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-88-blue?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-89-blue?style=flat-square)](#)
 [![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **88 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **89 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
 Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files or bundled skill folders, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
 
@@ -57,13 +57,14 @@ Domain-specific skills for Chinese web novel workflows, browser automation, and 
 | `design-brief-generator` | Generate practical DESIGN.md files and durable UI design briefs |
 | `website-generator` | Generate complete, production-ready websites from prompts |
 
-### 💻 Development (14 skills)
+### 💻 Development (15 skills)
 
 | Skill | Description |
 |---|---|
 | `analytics` | Plan and audit GA4/GTM tracking, event schemas, UTMs, and analytics data quality |
 | `best-practices` | Audit modern web security, browser compatibility, code quality and production best practices |
 | `performance` | Diagnose and improve web loading speed, resource delivery, caching and runtime responsiveness |
+| `web-quality-audit` | Evidence-led, cross-category website audit covering performance, accessibility, SEO, best practices and agentic browsing |
 | `agent-patterns` | Reusable AI agent design patterns and architectures |
 | `api-contract` | API contract design and OpenAPI spec generation |
 | `cleanup-code` | Systematic code cleanup and refactoring |
@@ -231,12 +232,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-88-blue?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-89-blue?style=flat-square)](#)
 [![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **88 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **89 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
 Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，带脚本和参考资料的技能也可以作为文件夹使用，还可以通过精选插件包按主题安装和维护。
 
@@ -288,13 +289,14 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 | `design-brief-generator` | 生成实用的 DESIGN.md 和长期可复用的 UI 设计 brief |
 | `website-generator` | 根据提示词生成完整的可上线网站 |
 
-### 💻 开发 (14 个技能)
+### 💻 开发 (15 个技能)
 
 | 技能 | 描述 |
 |---|---|
 | `analytics` | 规划和审查 GA4/GTM 埋点、事件规范、UTM 参数及数据质量 |
 | `best-practices` | 审查现代 Web 安全、浏览器兼容性、代码质量及生产环境最佳实践 |
 | `performance` | 分析并优化网页加载速度、资源传输、缓存及运行时响应性能 |
+| `web-quality-audit` | 综合审查网站性能、无障碍访问、SEO、最佳实践和 Agent 浏览兼容性，并区分实测结果与代码推测 |
 | `agent-patterns` | 可复用的 AI 助手设计模式与架构 |
 | `api-contract` | API 契约设计与 OpenAPI 规范生成 |
 | `cleanup-code` | 系统化代码清理与重构 |
