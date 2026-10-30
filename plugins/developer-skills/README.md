@@ -30,6 +30,7 @@ General software delivery skills for API design, REST implementation, cleanup, s
 | [supabase](./skills/supabase.md) | supabase |  |
 | [generating-unit-tests](./skills/generating-unit-tests.md) | testing | Test automatically generate comprehensive unit tests from source code covering happy paths, edge cases, and error conditions. Use when creating test coverage for functions, classes, or modules. Trigger with phrases li... |
 | [running-e2e-tests](./skills/running-e2e-tests.md) | testing | Execute end-to-end tests covering full user workflows across frontend and backend. Use when performing specialized testing. Trigger with phrases like "run end-to-end tests", "test user flows", or "execute E2E suite". |
+| [test-driven-development](./skills/test-driven-development/SKILL.md) | testing | Apply red-green-refactor TDD, reproduce bugs with failing tests, and verify regression fixes using the repository's own test commands. |
 
 ## Install
 
