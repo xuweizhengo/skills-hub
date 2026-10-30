@@ -1,11 +1,11 @@
 # Skills Hub 🧰
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-91-blue?style=flat-square)](#)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-92-blue?style=flat-square)](#)
 [![Categories](https://img.shields.io/badge/Categories-10-orange?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-A curated, ready-to-use collection of **91 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
+A curated, ready-to-use collection of **92 AI coding agent skills** sourced from popular skill repositories on GitHub and OpenAI/Codex-compatible workflow patterns. Compatible with **Claude Code**, **Codex**, **Cursor**, **Copilot**, **OpenClaw**, and other skill-compatible AI coding agents.
 
 Skills Hub also ships a **Codex-compatible plugin marketplace**. Skills remain available as individual Markdown files or bundled skill folders, while curated plugin bundles make them easier to browse, install, and maintain in Codex.
 
@@ -120,12 +120,13 @@ An extensive suite of penetration testing, security auditing, and vulnerability 
 | `supabase` | Supabase platform integration and management |
 | `supabase-postgres-best-practices` | PostgreSQL best practices for Supabase projects |
 
-### 🧪 Testing (2 skills)
+### 🧪 Testing (3 skills)
 
 | Skill | Description |
 |---|---|
 | `generating-unit-tests` | Automated unit test generation |
 | `running-e2e-tests` | End-to-end test execution and reporting |
+| `test-driven-development` | Guide implementation through red-green-refactor and regression-proof bug fixes |
 
 ### ✍️ Writing (6 skills)
 
@@ -234,12 +235,12 @@ MIT © [xuweizhengo](https://github.com/xuweizhengo)
 
 # Skills Hub 🧰 技能中心
 
-[![技能总数](https://img.shields.io/badge/技能总数-89-blue?style=flat-square)](#)
+[![技能总数](https://img.shields.io/badge/技能总数-92-blue?style=flat-square)](#)
 [![分类](https://img.shields.io/badge/分类-10-orange?style=flat-square)](#)
 [![许可证](https://img.shields.io/badge/许可证-MIT-green?style=flat-square)](LICENSE)
 [![欢迎PR](https://img.shields.io/badge/欢迎-PR-brightgreen?style=flat-square)](https://github.com/xuweizhengo/skills-hub/pulls)
 
-从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **91 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
+从 GitHub 上热门技能仓库和 OpenAI/Codex 兼容工作流模式中精选整理的 **92 个 AI 编程助手技能**，开箱即用。兼容 **Claude Code**、**Codex**、**Cursor**、**Copilot**、**OpenClaw** 及其他支持技能的 AI 编程助手。
 
 Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以直接复制使用，带脚本和参考资料的技能也可以作为文件夹使用，还可以通过精选插件包按主题安装和维护。
 
@@ -354,12 +355,13 @@ Skills Hub 同时内置 **Codex 兼容插件市场**。单个技能仍然可以�
 | `supabase` | Supabase 平台集成与管理 |
 | `supabase-postgres-best-practices` | Supabase 项目的 PostgreSQL 最佳实践 |
 
-### 🧪 测试 (2 个技能)
+### 🧪 测试 (3 个技能)
 
 | 技能 | 描述 |
 |---|---|
 | `generating-unit-tests` | 自动化单元测试生成 |
 | `running-e2e-tests` | 端到端测试执行与报告 |
+| `test-driven-development` | 通过红绿重构循环开发功能、复现缺陷并验证回归测试 |
 
 ### ✍️ 写作 (6 个技能)
 
