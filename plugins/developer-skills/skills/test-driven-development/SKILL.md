@@ -245,6 +245,8 @@ Preference order (most to least preferred):
 
 **Use mocks only when:** the real implementation is too slow, non-deterministic, or has side effects you can't control (external APIs, email sending). Over-mocking creates tests that pass while production breaks.
 
+For crash or rollback behavior, exercise the real boundary: an injected exception is not process termination, and a mocked transaction call is not a database rollback.
+
 ### Use the Arrange-Act-Assert Pattern
 
 ```typescript
@@ -358,7 +360,7 @@ This separation ensures the test is written without knowledge of the fix, making
 
 ## See Also
 
-For JavaScript/TypeScript testing patterns illustrating these principles — Jest, React Testing Library, Supertest, Playwright — see [upstream testing-patterns.md](https://github.com/addyosmani/agent-skills/blob/eb07f19f52c2669f2364897aaa293e2aaddd7b1c/references/testing-patterns.md). The principles transfer to any ecosystem; the syntax and tools there are JS/TS-specific.
+For JavaScript/TypeScript testing patterns illustrating these principles — Jest, React Testing Library, Supertest, Playwright — see [upstream testing-patterns.md](https://github.com/addyosmani/agent-skills/blob/8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e/references/testing-patterns.md). The principles transfer to any ecosystem; the syntax and tools there are JS/TS-specific.
 
 ## Common Rationalizations
 
