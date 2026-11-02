@@ -8,6 +8,7 @@ General software delivery skills for API design, REST implementation, cleanup, s
 |---|---|---|
 | [analytics](./skills/analytics/SKILL.md) | development | Plan and audit GA4/GTM tracking, event naming, UTMs, conversion measurement and data quality. |
 | [best-practices](./skills/best-practices/SKILL.md) | development | Apply modern web development best practices for security, compatibility, and code quality. Use when asked to "apply best practices", "security audit", "modernize code", "code quality review", or "check for vulnerabilities". |
+| [code-review-and-quality](./skills/code-review-and-quality/SKILL.md) | development | Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it ent... |
 | [performance](./skills/performance/SKILL.md) | development | Optimize web performance with measured loading, resource delivery, caching and runtime responsiveness improvements. |
 | [web-quality-audit](./skills/web-quality-audit/SKILL.md) | development | Run an evidence-led website quality audit across performance, accessibility, SEO, best practices and agentic browsing. |
 | [writing-for-agents](./skills/writing-for-agents/SKILL.md) | development | Write documents agents consume, including skills, AGENTS.md and CLAUDE.md, with clear context pointers and invocation rules. |
