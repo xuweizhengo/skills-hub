@@ -1,14 +1,14 @@
 # Source and license
 
-- Upstream: https://github.com/addyosmani/agent-skills/tree/eb07f19f52c2669f2364897aaa293e2aaddd7b1c/skills/debugging-and-error-recovery
+- Upstream: https://github.com/addyosmani/agent-skills/tree/39b723ceebf81474d0557c1fecd01eddab585563/skills/debugging-and-error-recovery
 - Upstream repository: `addyosmani/agent-skills`
-- Upstream branch HEAD at sync: `eb07f19f52c2669f2364897aaa293e2aaddd7b1c`
+- Upstream branch HEAD at sync: `39b723ceebf81474d0557c1fecd01eddab585563`
 - License: MIT License (Copyright (c) 2025 Addy Osmani; see `LICENSE`)
-- Upstream `SKILL.md` blob at sync: `13c1a431626c23270542c7b570d7193ba79c3a96`
+- Upstream `SKILL.md` blob at sync: `a078674507959e787e0bc031aaf65fa919382375`
 - Upstream `LICENSE` blob at sync (repository root): `d67778ada6b9cda6227e9130da182c13e73c8b2e`
-- Synced: 2026-10-30
+- Synced: 2026-11-15
 
-This bundle preserves the complete upstream Debugging and Error Recovery Skill and its MIT license notice, without modifying upstream `SKILL.md`. The upstream repository remains authoritative for future synchronization.
+This bundle preserves the complete upstream Debugging and Error Recovery Skill and its MIT license notice, without modifying upstream `SKILL.md`. The 2026-11-15 upstream change extends the trigger description for pasted diffs, stack traces, and debugging requests; the workflow body remains unchanged. The upstream repository remains authoritative for future synchronization.
 
 Compatibility: standard directory-based `SKILL.md` works with Codex, Claude Code, Cursor and other Agent Skills loaders. The copy under `plugins/developer-skills/skills/debugging-and-error-recovery/` is byte-for-byte identical to the main Skill directory. The Skill references the sibling upstream `test-driven-development` Skill as optional guidance; that Skill is not bundled. No executable scripts, credentials, MCP server, or external API integrations are bundled.
 
