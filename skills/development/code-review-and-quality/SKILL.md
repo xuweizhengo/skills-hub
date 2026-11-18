@@ -1,6 +1,6 @@
 ---
 name: code-review-and-quality
-description: Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. Use when asked to review a diff or a pull request, even when the diff is pasted inline.
+description: Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. Use when asked to review a diff or a pull request, even when the diff is pasted inline and the review looks quick to do from reading it.
 ---
 
 # Code Review and Quality
@@ -205,6 +205,8 @@ Check the author's verification story:
 - Are there screenshots for UI changes?
 - Is there a before/after comparison?
 ```
+
+Before you run tests or probes yourself, confirm the checkout is clean and on the reviewed ref (`git status --short` is empty and `git rev-parse HEAD` matches the PR head), and name that ref in the review. A working copy can hold uncommitted edits from another session, so evidence from it may describe code that is not in the change.
 
 ## Multi-Model Review Pattern
 
