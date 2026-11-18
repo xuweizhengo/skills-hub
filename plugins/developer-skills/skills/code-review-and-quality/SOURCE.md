@@ -1,14 +1,14 @@
 # Source and license
 
-- Upstream: https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/code-review-and-quality
+- Upstream: https://github.com/addyosmani/agent-skills/tree/main/skills/code-review-and-quality
 - Upstream repository: `addyosmani/agent-skills`
-- Upstream branch HEAD at sync: `301b02b12bff98e4688e6984af6556802322bbde`
+- Upstream branch: `main` (checked 2026-11-19)
 - License: MIT License (Copyright (c) 2025 Addy Osmani; see `LICENSE`)
-- Upstream `SKILL.md` blob at sync: `15ea44c93c61dcec705720342c1fd78755702f85`
+- Upstream `SKILL.md` blob at sync: `7e8ec8edb68b49a2099e57bc8ebc5bf321e9cfb8`
 - Upstream `references/security-checklist.md` blob at sync (repository root): `910fbff3ff3ee67e343ef308fe224f95edb5b5ce`
 - Upstream `references/performance-checklist.md` blob at sync (repository root): `81f754909440211c3a925a770abccf2da6d1d0fc`
 - Upstream `LICENSE` blob at sync (repository root): `d67778ada6b9cda6227e9130da182c13e73c8b2e`
-- Synced: 2026-11-03
+- Synced: 2026-11-19
 
 This bundle preserves the complete upstream Code Review and Quality Skill, both upstream repository-level review checklists and the MIT license. The only adaptation to `SKILL.md` changes two repository-level relative reference paths to the locally bundled `references/` directory. Both reference files are copied without changes. Upstream remains authoritative for future synchronization.
 
