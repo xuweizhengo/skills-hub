@@ -1,16 +1,16 @@
 # Source and license
 
-- Upstream: https://github.com/coreyhaines31/marketingskills/tree/7c187944fa63d149879459ba53ef4fd3c0364c50/skills/analytics
+- Upstream: https://github.com/coreyhaines31/marketingskills/tree/7eb2a2103e0d2d8e41e0b6de07d969bc14b7f1a8/skills/analytics
 - Upstream repository: `coreyhaines31/marketingskills`
-- Upstream branch HEAD at sync: `7c187944fa63d149879459ba53ef4fd3c0364c50`
+- Upstream branch HEAD at sync: `7eb2a2103e0d2d8e41e0b6de07d969bc14b7f1a8`
 - License: MIT License (Copyright (c) 2025 Corey Haines; see `LICENSE`)
-- Upstream `SKILL.md` blob at sync: `eb72d2630f367c68f2441709e058a3251eaea5f9`
+- Upstream `SKILL.md` blob at sync: `5429676635189949c029bd9bfd537c1f3a5717f9`
 - Upstream `references/event-library.md` blob at sync: `376f182dfc7f9be6daee5bd570af90656c3025e4`
 - Upstream `references/ga4-implementation.md` blob at sync: `22df98805b49bc3db77c49723a0a63620448a0de`
 - Upstream `references/gtm-implementation.md` blob at sync: `6012d1cf787087f81684b2ba948c35c3dbfb8ab1`
 - Upstream `evals/evals.json` blob at sync: `bf944d83ddcb2b33ee10ea6e09e06ea6a96c26d2`
 - Upstream `LICENSE` blob at sync (repository root): `7c48dd638a9ebed49a8ef0c0c4eea90105381cdf`
-- Synced: 2026-11-10
+- Synced: 2026-11-20
 
 This bundle preserves the upstream analytics Skill, all three reference documents, its evaluation cases and the upstream MIT license, with no changes to upstream file contents. The upstream repository is authoritative. The Skill credits a partner-UTM pattern adapted from Wispr Flow's MIT-licensed link-creator skill; that attribution is retained unchanged.
 
@@ -18,4 +18,6 @@ Compatibility: directory-based `SKILL.md` works with Codex, Claude Code, Cursor 
 
 2026-10-28 upstream update: version 2.2.1 → 2.2.2. GA4 signup example now maps the internal `signup_completed` event to GA4's recommended `sign_up` event; `references/ga4-implementation.md` is updated accordingly. Other bundled references, evals, and license remain unchanged. No local behavioral adaptation was necessary.
 
-2026-11-10 upstream update: 2.2.2 → 2.2.5. Only the SKILL.md frontmatter description and version changed; the main guidance, bundled references, evaluation cases and MIT license remain unchanged. Updated verbatim to the upstream commit 7c187944fa63d149879459ba53ef4fd3c0364c50. No executable content or new dependency was introduced.
+2026-11-10 upstream update: 2.2.2 → 2.2.5. Only the SKILL.md frontmatter description and version changed; the main guidance, bundled references, evaluation cases and MIT license remain unchanged. Updated verbatim to the upstream commit 7eb2a2103e0d2d8e41e0b6de07d969bc14b7f1a8. No executable content or new dependency was introduced.
+
+2026-11-20 upstream update: 2.2.5 → 2.2.7. Synced the upstream analytics SKILL.md verbatim, including corrected analytics tool integration labels, while retaining all unchanged reference documents, evaluation cases, attribution and MIT license. No scripts or new required runtime dependencies were introduced.
